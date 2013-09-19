@@ -1,16 +1,21 @@
 require 'spec_helper'
 
 describe "StaticPages" do
-    let(:base_title) {"SocialServicePlatform"}
+    let(:base_title) {"Social Service Platform"}
     describe "Home page" do
-        it "should have the h1 'SocialServicePlatform" do
+        it "should have the h1 Social Service Platform" do
             visit '/static_pages/home'
-            page.should have_selector('h1', :text => 'SocialServicePlatform')
+            page.should have_selector('h1', :text => "#{base_title}")
         end
-        it "should have the title 'Home'" do
+        it "should have the title Home" do
             visit '/static_pages/home'
-            page.should have_selector('title', :text => "#{base_title} | Home")
+            page.should have_selector('title', :text => "#{base_title}")
         end
+        it "should not have a custom page title" do
+            visit '/static_pages/home'
+            page.should_not have_selector('title', :text => '| Home')
+        end
+
     end
 
     describe "About page" do
