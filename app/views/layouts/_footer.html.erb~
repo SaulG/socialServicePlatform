@@ -1,0 +1,11 @@
+<footer class="footer">
+    <small>
+        Social Service Platform by Saul Gausin
+    </small>
+    <nav>
+        <ul>
+            <li><%= link_to "About", '#' %></li>
+            <li><%= link_to "Contact", '#' %></li>
+        </ul>
+    </nav>
+</footer>
