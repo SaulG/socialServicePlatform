@@ -1,4 +1,6 @@
 SocialServicePlatform::Application.routes.draw do
+  get "students/new"
+
     resources :users
     resources :sessions, only: [:new, :create, :destroy]
 
