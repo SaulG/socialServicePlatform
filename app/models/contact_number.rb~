@@ -1,0 +1,4 @@
+class ContactNumber < ActiveRecord::Base
+    attr_accessible :number, :type_of_number_id, :user_id
+    belongs_to :type_of_number, :user
+end

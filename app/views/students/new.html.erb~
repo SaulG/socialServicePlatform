@@ -1,2 +1,31 @@
-<h1>Students#new</h1>
-<p>Find me in app/views/students/new.html.erb</p>
+<% provide(:title, 'Sign up') %>
+<h1>Sign up</h1>
+<div class="row">
+    <div class="span6 offset3">
+        <%= form_for(@student) do |f| %>
+        <%=render 'shared/error_student_messages' %>
+        <h2>User account</h2>        
+        <%= f.label :email %>
+        <%= f.text_field :email %>
+
+        <%= f.label :password %>
+        <%= f.password_field :password %>
+
+        <%= f.label :password_confirmation, "Confirmation" %>
+        <%= f.password_field :password_confirmation %>
+        
+        <h2>Personal information</h2>
+        <%= f.label :name %>
+        <%= f.text_field :name %>
+        <br/>
+        <%= f.simple_fields_for :address do |builder| %>
+            <%= builder.text_field :description %>
+        <% end %>
+        <h2>Academic information</h2>
+
+
+        <%= f.submit "Create my account", class: "btn btn-large
+                                                  btn-primary" %>
+        <% end %>
+    </div>
+</div>

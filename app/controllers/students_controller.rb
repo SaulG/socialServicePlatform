@@ -12,6 +12,7 @@ class StudentsController < ApplicationController
 
     def new
         @student = Student.new
+        @student.build_address
     end
 
     def show

@@ -15,7 +15,10 @@
 
         <%= f.label :password_confirmation, "Confirmation" %>
         <%= f.password_field :password_confirmation %>
-
+        
+        <%= f.simple_fields_for :address do |builder| %>
+            <%= builder.text_field :description %>
+        <% end %>
         <%= f.submit "Create my account", class: "btn btn-large
         btn-primary" %>
         <% end %>

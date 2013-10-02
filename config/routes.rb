@@ -1,7 +1,6 @@
 SocialServicePlatform::Application.routes.draw do
-  get "students/new"
-
     resources :users
+    resources :students
     resources :sessions, only: [:new, :create, :destroy]
 
     match '/signup', to: 'users#new'
