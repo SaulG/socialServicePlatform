@@ -18,7 +18,7 @@
         <%= f.label :name %>
         <%= f.text_field :name %>
         <br/>
-        <%= f.simple_fields_for :address do |builder| %>
+        <%= f.fields_for :address do |builder| %>
             <%= builder.text_field :description %>
         <% end %>
         <h2>Academic information</h2>

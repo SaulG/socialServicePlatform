@@ -11,7 +11,7 @@
 #
 
 class User < ActiveRecord::Base
-    attr_accessible :email, :name, :password, :password_confirmation, :address_attributes
+    attr_accessible :email, :name, :password, :password_confirmation, :address_attributes, :role
     has_secure_password
     before_save { |user| user.email = email.downcase }
     before_save :create_remember_token
@@ -20,9 +20,9 @@ class User < ActiveRecord::Base
     validates :email, presence: true, format: { with: VALID_EMAIL_REGEX },uniqueness: { case_sensitive: false}
     validates :password, presence: true, length: { minimum: 6 }
     validates :password_confirmation, presence: true
+    validates :role, presence: true, :inclusion => {:in => %w(student)}
     has_one :address, dependent: :destroy
     accepts_nested_attributes_for :address, allow_destroy: true, reject_if: proc { |a| a["description"].blank?}
-    validates_presence_of :description
 
     private
     def create_remember_token
