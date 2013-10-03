@@ -14,6 +14,7 @@ class StudentsController < ApplicationController
     def new
         @student = Student.new
         @student.build_address
+        @student.build_contact_number
     end
 
     def show

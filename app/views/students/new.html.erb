@@ -22,6 +22,13 @@
         <%= builder.label :description, "Address" %>
         <%= builder.text_area :description, :rows=>"2" %>
         <% end %>
+        <%= f.fields_for :contact_number do |builder| %>
+        <%= builder.label "Contact number" %>
+        <%= builder.select :type_of_number_id,
+        TypeOfNumber.all.collect{|p| [ p.type_of_number,p.id]}, :prompt => 'Select a
+        type of number'%>
+        <%= builder.text_field :number%>
+        <% end %>
         <h2>Academic information</h2>
 
 
