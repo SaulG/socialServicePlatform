@@ -1,0 +1,4 @@
+class AddIndexToInstitutionsName < ActiveRecord::Migration
+  def change
+  end
+end

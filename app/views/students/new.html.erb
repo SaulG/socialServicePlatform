@@ -30,8 +30,11 @@
         <%= builder.text_field :number%>
         <% end %>
         <h2>Academic information</h2>
-        <%= builder.label "Institution" %>
-        <%= builder.text_field :institution_id%>
+        <%= f.label "Institution" %>
+        <%= f.text_field :institution_name, id: "institution-name" %>
+        <%= f.label "Enrollment" %>
+        <%= f.text_field :enrollment %>
+        
         <%= f.submit "Create my account", class: "btn btn-large
                                                   btn-primary" %>
         <% end %>

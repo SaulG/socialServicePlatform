@@ -1,5 +1,4 @@
 class StudentsController < ApplicationController
-
     def create
         @student = Student.new(params[:student])
         @student.role = @student.class.name
