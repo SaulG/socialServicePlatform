@@ -1,0 +1,17 @@
+<% provide(:title, 'Personal information')%>
+<h2>Personal information</h2>
+<%= form_for(@user) do |f| %>
+<%=render 'shared/error_user_messages' %>
+<%= f.fields_for :address do |builder| %>
+<%= builder.label :description, "Address" %>
+<%= builder.text_area :description, :rows=>"2" %>
+<% end %>
+<%= f.fields_for :contact_number do |builder| %>
+<%= builder.label "Contact number" %>
+<%= builder.select :type_of_number_id,
+    TypeOfNumber.all.collect{|p| [ p.type_of_number,p.id]}, :prompt => 'Select a
+type of number'%>
+<%= builder.text_field :number%>
+<% end %>        
+<%= f.submit "Continue", class: "btn btn-large btn-primary" %>
+<% end %>

@@ -1,0 +1,6 @@
+<h2>Academic information</h2>
+<%= f.label "Institution" %>
+<%= f.text_field :institution_name, id: "institution-name" %>
+<%= f.label "Enrollment" %>
+<%= f.text_field :enrollment %>
+

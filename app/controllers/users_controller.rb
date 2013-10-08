@@ -4,17 +4,22 @@ class UsersController < ApplicationController
     def create
         @user = User.new(params[:user])
         if @user.save
-            sign_in @user
-            flash[:success] = "Welcome to the Social Service Platform"
-            redirect_to @user
+           sign_in @user
+           flash[:success] = "Welcome to the Social Service Platform"
+           redirect_to @user
         else
             render 'new'
         end
     end
 
     def new
-        @user = User.new
-        @user.build_address
+        if (params[:rol] == 'estudiante') or (params[:rol] == 'encargado')
+            @user = User.new
+            @user.build_address
+            @user.role = params[:rol]
+        else
+            redirect_to root
+        end
     end
 
     def show

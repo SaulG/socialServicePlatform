@@ -1,7 +1,6 @@
 class StudentsController < ApplicationController
     def create
         @student = Student.new(params[:student])
-        @student.role = @student.class.name
         if @student.save
             sign_in @student
             flash[:success] = "Welcome to the Social Service Platform"
