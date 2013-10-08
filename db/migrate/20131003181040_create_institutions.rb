@@ -1,7 +1,7 @@
 class CreateInstitutions < ActiveRecord::Migration
   def change
     create_table :institutions do |t|
-      t.string :name
+      t.integer :name
 
       t.timestamps
     end
