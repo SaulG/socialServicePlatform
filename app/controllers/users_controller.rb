@@ -13,12 +13,12 @@ class UsersController < ApplicationController
     end
 
     def new
-        if (params[:rol] == 'estudiante') or (params[:rol] == 'encargado')
+        if (params[:rol] == 'student') or (params[:rol] == 'attendant')
             @user = User.new
             @user.build_address
             @user.role = params[:rol]
         else
-            redirect_to root
+            redirect_to root_path
         end
     end
 
@@ -27,6 +27,7 @@ class UsersController < ApplicationController
     end
     def edit
     end
+
     def update
         if @user.update_attributes(params[:user])
             flash[:success] = "Profile updated"

@@ -1,9 +1,8 @@
-<div class="center hero-unit">
-    <h1>Social Service Platform</h1>
-    <h2>
-        Home page
-    </h2>
-    
-    <%= link_to "Registrare", signup_path, class: "btn btn-large btn-primary"%>
+<div class="row">
+    <div class="span5">
+        <%= render 'users/register' %>
+    </div>
+    <div class="span5 offset0">
+        <%= render 'sessions/new' %>
+    </div>
 </div>
-    

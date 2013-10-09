@@ -79,7 +79,7 @@ p {
 /* footer */
 
 footer {
-  margin-top: 45px;
+  margin-top:  45px;
   padding-top: 5px;
   border-top: 1px solid $grayMediumLight;
   color: $grayLight;
@@ -161,5 +161,12 @@ input, textarea, select, .uneditable-input {
   @extend .control-group;
   @extend .error;
 }
+
+#links{
+    border-right: 1px solid gray;
+      padding:15px;
+
+}
+
 
 

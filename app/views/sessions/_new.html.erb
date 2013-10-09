@@ -1,0 +1,25 @@
+<h2>Login</h2>
+<%= form_for(:session, url: sessions_path, class:"form-horizontal") do |f|%>
+<div class="control-group">
+    <%= f.label :email, class:"control-label", for:"inputEmail" %>
+    <div class="controls">
+        <%= f.text_field :email, id:"inputEmail", placeholder:"Email" %>
+    </div>
+</div>
+<div class="control-group">
+    <%= f.label :password, class:"control-label", for:"inputPassword" %>
+        <div class="controls">
+            <%= f.password_field :password, id:"InputPassword",
+                placeholder:"Password" %>
+        </div>
+</div>
+<div class="control-group">
+    <div class="controls">
+        <label class="checkbox">
+            <input type="checkbox"> Remember me
+        </label>
+        <%= f.submit "Sign in", class: "btn medium" %>
+    </div>
+</div>
+<% end %>
+
