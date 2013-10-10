@@ -4,8 +4,7 @@ SocialServicePlatform::Application.routes.draw do
     resources :students
     resources :sessions, only: [:new, :create, :destroy]
 
-    match '/signup/:rol', to: 'users#new'
-    match '/signin', to: 'sessions#new'
+    match '/signup/:role', to: 'users#new', :as => 'signup'
     match '/signout', to: 'sessions#destroy', via: :delete
 
     root to: 'static_pages#home'
