@@ -1,4 +1,8 @@
 SocialServicePlatform::Application.routes.draw do
+    namespace :users do
+        root to: 'static_pages#help'
+    end
+    root to: 'static_pages#home'
     get '/getInstitutionsNames', to: 'institutions#getInstitutionsNames', via: :get
     resources :users
     resources :students
@@ -7,7 +11,6 @@ SocialServicePlatform::Application.routes.draw do
     match '/signup/:role', to: 'users#new', :as => 'signup'
     match '/signout', to: 'sessions#destroy', via: :delete
 
-    root to: 'static_pages#home'
 
     match '/prueba', to: 'students#field_institutions'
     match '/home', to: 'static_pages#home'
