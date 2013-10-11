@@ -3,6 +3,9 @@ class StaticPagesController < ApplicationController
   end
 
   def home
+      if signed_in?
+          redirect_to help_path
+      end
   end
 
   def contact
