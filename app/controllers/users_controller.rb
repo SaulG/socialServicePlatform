@@ -14,7 +14,7 @@ class UsersController < ApplicationController
         end
     end
     def new
-        if (params[:role] == 'student') or (params[:role] == 'attendant')
+        if (params[:role] == 'student') or (params[:role] == 'attendantinstitution') or (params[:role] == 'attendantdependency')
             @user = User.new()
             @role = params[:role]
         else
