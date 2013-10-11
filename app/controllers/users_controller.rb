@@ -2,7 +2,6 @@ class UsersController < ApplicationController
     before_filter :signed_in_user, only: [:edit, :update]
     before_filter :correct_user, only: [:edit, :update]
     def create
-        p params
         @user = User.new(params[:user])
         if @user.save
             sign_in @user
@@ -25,6 +24,8 @@ class UsersController < ApplicationController
         @user = User.find(params[:id])
     end
     def edit
+        @user.build_address
+        @user.build_contact_number
     end
 
     def update

@@ -25,7 +25,12 @@ class UsersController < ApplicationController
         @user = User.find(params[:id])
     end
     def edit
-        
+        if @user.address == ''
+            @user.build_address
+        end
+        if @user.contact_number == ''
+            @user.build_contact_number
+        end
     end
 
     def update

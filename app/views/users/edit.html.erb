@@ -13,6 +13,19 @@
         <%= f.label :email %>
         <%= f.text_field :email %>
 
+        <%= f.fields_for :address do |builder| %>
+        <%= builder.label :description, "Address" %>
+        <%= builder.text_area :description, :rows=>"2" %>
+        <% end %>
+
+        <%= f.fields_for :contact_number do |builder| %>
+        <%= builder.label "Contact number" %>
+        <%= collection_select(builder,
+        :type_of_number_id, TypeOfNumber.all, :id,
+        :type_of_number, {:prompt => 'Select'}, class:"span2")%>
+        <%= builder.text_field :number, class:"span2"%>
+        <% end %>
+
         <%= f.label :password %>
         <%= f.password_field :password %>
 
@@ -20,7 +33,6 @@
         <%= f.password_field :password_confirmation %>
         
         <%= f.submit "Save changes", class: "btn btn-primary" %>
-        <%= f.button "Cancel", class: "btn" %>
         <% end %>
     </div>
 </div>
