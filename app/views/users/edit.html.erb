@@ -4,9 +4,11 @@
     <div class"span6 offset3">
         <%= form_for(@user) do |f| %>
         <%= render 'shared/error_user_messages' %>
-        
         <%= f.label :name %>
         <%= f.text_field :name %>
+
+        <%= f.label :last_name %>
+        <%= f.text_field :last_name %>
 
         <%= f.label :email %>
         <%= f.text_field :email %>
@@ -17,8 +19,8 @@
         <%= f.label :password_confirmation, "Confirm Password" %>
         <%= f.password_field :password_confirmation %>
         
-        <%= f.submit "Save changes", class: "btn btn-large
-        btn-primary" %>
+        <%= f.submit "Save changes", class: "btn btn-primary" %>
+        <%= f.button "Cancel", class: "btn" %>
         <% end %>
     </div>
 </div>
