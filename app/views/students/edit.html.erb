@@ -4,6 +4,7 @@
         <%= form_for(@student) do |f| %>
         <%=render 'shared/error_student_messages' %>
         <h2>Student information</h2>
+        <%= current_student.institution_id %>
         <%= f.label "Institution" %>
         <%= f.text_field :institution_name, id: "institution-name" %>
         <%= f.label "Enrollment" %>

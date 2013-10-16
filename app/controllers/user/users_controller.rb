@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+    USER_TYPES = { 'student' => 'Student', 'institution_attendant' => 'InstitutionAttendant', 'dependency_attendant' => 'DependencyAttendant'}
     before_filter :signed_in_user, only: [:edit, :update]
     before_filter :correct_user, only: [:edit, :update]
     def create
@@ -14,7 +15,7 @@ class UsersController < ApplicationController
         end
     end
     def new
-        if (params[:role] == 'student') or (params[:role] == 'attendant')
+        if USER_TYPES[params[:role]]
             @user = User.new()
             @role = params[:role]
         else

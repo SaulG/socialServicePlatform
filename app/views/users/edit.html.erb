@@ -20,18 +20,16 @@
 
         <%= f.fields_for :contact_number do |builder| %>
         <%= builder.label "Contact number" %>
-        <%= collection_select(builder,
-        :type_of_number_id, TypeOfNumber.all, :id,
-        :type_of_number, {:prompt => 'Select'}, class:"span2")%>
+        <%= builder.select :type_of_number_id,
+        TypeOfNumber.all.collect{|t|[t.type_of_number, t.id]}, class:"span2" %>
         <%= builder.text_field :number, class:"span2"%>
         <% end %>
-
         <%= f.label :password %>
         <%= f.password_field :password %>
 
+
         <%= f.label :password_confirmation, "Confirm Password" %>
         <%= f.password_field :password_confirmation %>
-        
         <%= f.submit "Save changes", class: "btn btn-primary" %>
         <% end %>
     </div>

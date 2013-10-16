@@ -1,0 +1,47 @@
+<legend>
+    Student information
+</legend>
+
+<dl class="dl-horizontal">
+    <% if !current_student.nil? %>
+    <dt>
+        <strong>
+            Enrollemnt
+        </strong>
+    </dt>
+    <dd>
+        <% if current_student.enrollment.nil? %>
+        <p class="muted">
+            The enrollment information is not updated yet.
+        </p>
+        <% else %>
+        <%= current_student.enrollment %>
+        <% end %>
+    </dd>
+    <dt>
+        <strong>
+           Institution
+        </strong>
+    </dt>
+    <dd>
+        <% if current_student.institution_id.nil? %>
+        <p class="muted">
+            The institution information is not updated yet.    
+        </p>
+        <% else %>
+        <%= Institution.find_by_id(current_student.institution_id).name%>
+        <% end %>
+    </dd>
+</dl>
+<%= button_to "Edit Student Information",
+    show_student_path(current_student), method: :get, class:"btn
+                                                             btn-primary" %>
+<% else %>
+<p class="muted">
+    The student information is not updated yet.
+</p>
+<%= button_to "Add Student Information",
+    new_student_path(student), method: :get, class:"btn
+                                                            btn-primary" %>
+<% end %>
+

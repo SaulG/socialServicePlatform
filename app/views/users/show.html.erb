@@ -3,8 +3,66 @@
     <aside class="span4">
         <section>
             <h1>
-                <%= @user.name %>
+                Profile
             </h1>
         </section>
+        <legend>
+            Personal Information
+        </legend>
+        <dl class="dl-horizontal">
+            <dt> 
+                <strong>
+                    Full name
+                </strong>
+            </dt>
+            <dd>
+                <%= @user.name %>
+                <%= @user.last_name %>
+            </dd>
+            <dt>
+                <strong>
+                    Email
+                </strong>
+            </dt>
+            <dd>
+                <%=@user.email %>
+            </dd>
+            <dt>
+                <strong>
+                    Address
+                </strong>
+            </dt>
+            <dd>
+                <% if @user.address.nil? %>
+                <p class="muted">
+                    The address information is not updated yet.
+                </p>
+                <% else %>
+                <%= @user.address.description %>
+                <% end %>
+            </dd>
+            <dt>
+                <strong>
+                    Contact number
+                </strong>
+            </dt>
+            <dd>
+                <% if @user.contact_number.nil? %>
+                <p class="muted">
+                    The contact number information is not updated yet.
+                </p>
+                <% else %>                
+                <%= TypeOfNumber.find_by_id(@user.contact_number.type_of_number_id).type_of_number%>
+                <%= @user.contact_number.number%>
+                <% end %>
+            </dd>
+        </dl>    
+        <%= button_to "Edit Personal Information",
+            edit_user_path(current_user), method: :get, class:"btn btn-primary" %>
+        <%= render'students/show' %>
+        <legend>
+            Notifications
+        </legend>
     </aside>
+
 </div>
