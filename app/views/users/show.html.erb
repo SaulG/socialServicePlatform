@@ -1,27 +1,33 @@
 <% provide(:title, @user.name) %>
 <div class="row">
-    <aside class="span4">
+    <aside class="span12">
         <section>
             <h1>
-                Profile
+                Perfil
             </h1>
         </section>
         <legend>
-            Personal Information
+            Informacion personal
         </legend>
         <dl class="dl-horizontal">
             <dt> 
                 <strong>
-                    Full name
+                    Nombre completo
                 </strong>
             </dt>
             <dd>
+                <% if @user.name.nil? %>
+                <small class="muted">
+                    La informacion de tu nombre completo no ha sido actualizada.
+                </small>
+                <% else %>
                 <%= @user.name %>
                 <%= @user.last_name %>
+                <% end %>
             </dd>
             <dt>
                 <strong>
-                    Email
+                    <i class="icon-envelope"></i>
                 </strong>
             </dt>
             <dd>
@@ -29,40 +35,39 @@
             </dd>
             <dt>
                 <strong>
-                    Address
+                    Direccion
                 </strong>
             </dt>
             <dd>
                 <% if @user.address.nil? %>
-                <p class="muted">
-                    The address information is not updated yet.
-                </p>
+                <small class="muted">
+                    La informacion de tu direccion no ha sido
+                    actualizada aun.
+                </small>
                 <% else %>
                 <%= @user.address.description %>
                 <% end %>
             </dd>
             <dt>
                 <strong>
-                    Contact number
+                    Contacto
                 </strong>
             </dt>
             <dd>
                 <% if @user.contact_number.nil? %>
-                <p class="muted">
-                    The contact number information is not updated yet.
-                </p>
+                <small class="muted">
+                    La informacion del numero de contacto no ha sido actualizada aun.
+                </small>
                 <% else %>                
                 <%= TypeOfNumber.find_by_id(@user.contact_number.type_of_number_id).type_of_number%>
                 <%= @user.contact_number.number%>
                 <% end %>
             </dd>
         </dl>    
-        <%= button_to "Edit Personal Information",
+        <br/>
+        <%= button_to "Editar informacion personal",
             edit_user_path(current_user), method: :get, class:"btn btn-primary" %>
         <%= render'students/show' %>
-        <legend>
-            Notifications
-        </legend>
     </aside>
 
 </div>

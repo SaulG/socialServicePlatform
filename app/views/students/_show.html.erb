@@ -1,45 +1,45 @@
 <legend>
-    Student information
+    Informacion estudiantil
 </legend>
 
 <dl class="dl-horizontal">
     <% if !current_student.nil? %>
     <dt>
         <strong>
-            Enrollemnt
+            Matricula
         </strong>
     </dt>
     <dd>
         <% if current_student.enrollment.nil? %>
-        <p class="muted">
-            The enrollment information is not updated yet.
-        </p>
+        <small class="muted">
+            La informacion de la matricula no ha sido actualizada aun.
+        </small>
         <% else %>
         <%= current_student.enrollment %>
         <% end %>
     </dd>
     <dt>
         <strong>
-           Institution
+           Institucion
         </strong>
     </dt>
     <dd>
         <% if current_student.institution_id.nil? %>
-        <p class="muted">
-            The institution information is not updated yet.    
-        </p>
+        <small class="muted">
+            La informacion de la institucion no ha sido actualizada aun.
+        </small>
         <% else %>
         <%= Institution.find_by_id(current_student.institution_id).name%>
         <% end %>
     </dd>
 </dl>
-<%= button_to "Edit Student Information",
-    edit_student_path(current_student), method: :get, class:"btn
-                                                             btn-primary" %>
+<br/>
+<%= button_to "Editar informacion estudiantil", edit_student_path(current_student), method: :get, class:"btn btn-primary" %>
 <% else %>
-<p class="muted">
-    The student information is not updated yet.
-</p>
-<%= button_to "Add Student Information", new_student_path(current_student),
+<small class="muted">
+    La informacion estudiantil no ha sido actualizada aun.
+</small>
+<br/>
+<%= button_to "Agregar informacion estudiantil", new_student_path,
     method: :get, class:"btn btn-primary" %>
 <% end %>

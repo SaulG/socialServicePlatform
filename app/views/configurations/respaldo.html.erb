@@ -1,0 +1,15 @@
+            Habilitado
+                <% else %>
+                Deshabilitado
+                <% end %>
+            <dt>
+                Recibir notificaciones en tiempo real
+            </dt>
+            <dd>
+                <% if @configuration.notification_in_real_time %>
+                  Habilitado
+                <% else %>
+                  Deshabilitado
+                <% end %>
+            </dd>
+        </dl>

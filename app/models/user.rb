@@ -21,19 +21,21 @@ class User < ActiveRecord::Base
 
     before_save { |user| user.email = email.downcase }
     before_save :create_remember_token
+    before_save :create_configuration
 
-    validates :name, presence: true, length: { maximum: 50 }
     validates :email, presence: true, format: { with: VALID_EMAIL_REGEX },uniqueness: { case_sensitive: false}
     validates :password, presence: true, length: { minimum: 6 }
     validates :password_confirmation, presence: true
 
     has_one :address, dependent: :destroy
     has_one :contact_number, dependent: :destroy
+    has_one :configuration, dependent: :destroy
 
     has_one :user_role, :class_name => proc{USER_TYPES[self.role].constantize}
 
     accepts_nested_attributes_for :address, allow_destroy: true, reject_if: proc { |a| a["description"].blank?}
     accepts_nested_attributes_for :contact_number, allow_destroy: true, reject_if: proc { |a| a["number"].blank?}
+
 
     private
     def create_remember_token

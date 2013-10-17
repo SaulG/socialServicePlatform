@@ -1,9 +1,13 @@
-<h2>Register</h2>
-<div id="links">
+<h2>Registro</h2>
+<div class="links">
     <pre>
-        Select an option depending in your profile:
-        <%= link_to "I'm a student and I'll be doing the social service.", signup_path(:role => 'student'), class: "btn btn-link"%>
-        <%= link_to "I'm an attendant incorporated and I need to fill my vacancies.", signup_path(:role=> 'dependency_attendant'), class: "btn btn-link"%>
-        <%= link_to "I'm an institution with students doing his social service here.", signup_path(:role=> 'institution_attendant'), class: "btn btn-link"%>
+        Selecciona una opcion dependiendo tu perfil:
+        <%= link_to "Soy un estudiante y estare realizando el Servicio Social.",
+            signup_path(:role => 'student'), class:"btn btn-link text-wrapping"%>
+        <%= link_to "Soy un encargado incorporado y necesito llenar vacantes.",
+            signup_path(:role=> 'dependency_attendant'),
+        class:"btn btn-link text-wrapping"%>
+        <%= link_to "Soy una instituticion  y necesito datos de mis estudiantes.",
+            signup_path(:role=>'institution_attendant'), class:"btn btn-link text-wrapping"%>
     </pre>
 </div>

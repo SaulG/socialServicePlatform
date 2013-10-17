@@ -4,6 +4,8 @@ SocialServicePlatform::Application.routes.draw do
 
     resources :users
     resources :students
+    resources :configurations
+
     resources :sessions, only: [:new, :create, :destroy]
     root to: 'static_pages#home'
     match '/signup/:role', to: 'users#new', :as => 'signup'

@@ -1,0 +1,35 @@
+<% provide(:title, "Configuracion") %>
+<div class="row">
+    <aside class="span4">
+        <section>
+            <h1>
+                Configuracion
+            </h1>
+        </section>
+        <legend>
+            Notificaciones
+        </legend>
+        <dl class="dl-horizontal">
+            <dt>
+               Notificaciones via correo electronico
+            </dt>
+            <dd>
+                <% if current_configuration.can_send_email %>
+                   Habilitado
+                <% else %>
+                   Deshabilitado
+                <% end %>
+            </dd>
+            <dt>
+                Recibir notificaciones en tiempo real
+            </dt>
+            <dd>
+                <% if current_configuration.notification_in_real_time %>
+                  Habilitado
+                <% else %>
+                  Deshabilitado
+                <% end %>
+            </dd>
+        </dl>
+    </aside>
+</div>

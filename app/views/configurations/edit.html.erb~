@@ -1,0 +1,30 @@
+<% provide(:title, "Configuracion") %>
+<div class="row">
+    <aside class="span8">
+        <section>
+            <h1>
+                Configuracion
+            </h1>
+        </section>
+        <legend>
+            Notificaciones
+        </legend>
+            <% if !current_configuration.nil? %>                
+            <%= form_for(current_configuration) do |f| %>
+            <div class="field">
+            Quiero recibir notificaciones via correo electronico.
+            <%= f.check_box :can_send_email, id:"can-send-email" %>
+            </div>
+            <br/>
+            <div class="field">
+            Quiero recibir notificaciones en tiempo real por medio de
+            alertas dentro de la plataforma.
+            <%= f.check_box :can_send_email %>
+            <div/>
+            <br/>
+            <% end %>
+            <% else %>
+            
+            <% end %>            
+    </aside>
+</div>

@@ -8,3 +8,4 @@
 type_of_numbers = TypeOfNumber.create([{type_of_number: 'Celular'},{type_of_number:'Casa'}])
 institutions = Institution.create([{name:'Facultad de Ingenieria Mecanica y Electrica'},{name:'Facultad de Artes Visuales'},
                                       {name:'Facultad de Arquitectura'},{name:'Facultad de Ingenieria Civil'}])
+frequencies = Frequency.create([{type:'Cada dia'},{type:'Cada semana'},{type:'Cada mes'}])

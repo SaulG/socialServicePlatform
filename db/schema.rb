@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131014190012) do
+ActiveRecord::Schema.define(:version => 20131016210127) do
 
   create_table "addresses", :force => true do |t|
     t.integer  "user_id"
@@ -21,6 +21,15 @@ ActiveRecord::Schema.define(:version => 20131014190012) do
   end
 
   add_index "addresses", ["user_id"], :name => "index_addresses_on_user_id"
+
+  create_table "configurations", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "frequency_id"
+    t.boolean  "notification_in_real_time"
+    t.boolean  "can_send_email"
+    t.datetime "created_at",                :null => false
+    t.datetime "updated_at",                :null => false
+  end
 
   create_table "contact_numbers", :force => true do |t|
     t.integer  "user_id"
@@ -32,6 +41,12 @@ ActiveRecord::Schema.define(:version => 20131014190012) do
 
   create_table "dependency_attendants", :force => true do |t|
     t.integer  "user_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "frequencies", :force => true do |t|
+    t.string   "type"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
@@ -57,6 +72,12 @@ ActiveRecord::Schema.define(:version => 20131014190012) do
   end
 
   add_index "institutions", ["name"], :name => "index_institutions_on_name", :unique => true
+
+  create_table "roles", :force => true do |t|
+    t.string   "type"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "students", :force => true do |t|
     t.string   "enrollment"

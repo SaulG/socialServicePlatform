@@ -5,7 +5,7 @@ class SessionsController < ApplicationController
             sign_in user
             redirect_back_or user
         else
-            flash[:error] = 'Invalid email/password combination'
+            flash[:error] = 'Combinacion invalida de correo electronico y contrasena.'
             redirect_to root_url
         end
     end

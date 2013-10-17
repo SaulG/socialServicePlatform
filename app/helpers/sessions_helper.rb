@@ -4,6 +4,7 @@ module SessionsHelper
         cookies.permanent[:remember_token] = user.remember_token
         self.current_user = user
         self.current_student = Student.find_by_user_id(user.id)
+        self.current_configuration = Configuration.find_by_user_id(user.id)
     end
 
     def signed_in?
@@ -33,8 +34,21 @@ module SessionsHelper
         student == current_student
     end
 
+    def current_configuration=(configuration)
+        @current_configuration = configuration
+    end
+
+    def current_configuration
+        @current_configuration ||= Configuration.find_by_user_id(current_user.id)
+    end
+    def current_configuration?(configuration)
+        configuration == current_configuration
+    end
+
     def sign_out
         self.current_user = nil
+        self.current_student = nil
+        self.current_configuration = nil
         cookies.delete(:remember_token)
     end
     def redirect_back_or(default)

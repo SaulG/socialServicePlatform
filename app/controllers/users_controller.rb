@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
-    before_filter :signed_in_user, only: [:edit, :update]
-    before_filter :correct_user, only: [:edit, :update]
+    before_filter :signed_in_user, only: [:edit, :update, :show]
+    before_filter :correct_user, only: [:edit, :update, :show]
 #    before_filter :check_filled_information_user
 #    before_filter :check_status_user
 
@@ -8,7 +8,7 @@ class UsersController < ApplicationController
         @user = User.new(params[:user])
         if @user.save
             sign_in @user
-            flash[:success] = "Welcome to the Social Service Platform"
+            flash[:success] = "Bienvenido a la plataforma del Servicio Social."
             redirect_to @user
         else
             @role = @user.role
@@ -40,14 +40,13 @@ class UsersController < ApplicationController
 
     def update
         if @user.update_attributes(params[:user])
-            flash[:success] = "Profile updated"
+            flash[:success] = "La informacion personal ha sido actualizada."
             sign_in @user
             redirect_to @user
         else
             if current_user.address.nil?
                 @user.build_address
                 @user.build_contact_number
-                @user.build_user_role
             end
             render 'edit'
         end
@@ -56,12 +55,12 @@ class UsersController < ApplicationController
     def signed_in_user
         unless signed_in?
             store_location
-            redirect_to signin_url, notice: "Please sign in."
+            redirect_to signin_url, notice: "Inicie sesion, por favor."
         end
     end
     def correct_user
         @user = User.find(params[:id])
-        redirect_to(root_url) unless current_user?(@user)
+        redirect_to(current_user) unless current_user?(@user)
     end
 
     def check_filled_information_user

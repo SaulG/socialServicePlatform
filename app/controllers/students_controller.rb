@@ -10,7 +10,8 @@ class StudentsController < ApplicationController
     end
 
     def new
-        @student = Student.new
+        @student = Student.new()
+        @student.user_id = current_user.id
     end
 
     def show
@@ -18,14 +19,14 @@ class StudentsController < ApplicationController
     end
 
     def edit
-        @student = Student.find(params[:id])
+        @student = Student.find(current_student.id)
         @student.institution_name = Institution.find(@student.institution_id).name
     end
 
     def update
-        @student = Student.find_by_id(params[:id])
+        @student = Student.find(params[:id])
         if @student.update_attributes(params[:student])
-            flash[:success] = "Student information updated"
+            flash[:success] = "La informacion estudiantil ha sido actualizada."
             redirect_to current_user
         else
             render 'edit'
