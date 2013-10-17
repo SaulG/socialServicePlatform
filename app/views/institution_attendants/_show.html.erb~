@@ -1,0 +1,16 @@
+<legend>
+    Informacion de la institucion
+</legend>
+
+<dl class="dl-horizontal">
+    <% if !current_institution_attendant.nil? %>
+</dl>
+<%= button_to "Editar informacion estudiantil", edit_student_path(current_student), method: :get, class:"btn btn-primary" %>
+<% else %>
+<small class="muted">
+    La informacion estudiantil no ha sido actualizada aun.
+</small>
+<br/>
+<%= button_to "Agregar informacion estudiantil", new_student_path,
+    method: :get, class:"btn btn-primary" %>
+<% end %>

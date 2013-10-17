@@ -1,9 +1,15 @@
 module SessionsHelper
-
     def sign_in(user)
         cookies.permanent[:remember_token] = user.remember_token
         self.current_user = user
-        self.current_student = Student.find_by_user_id(user.id)
+        case self.current_student.role
+        when 'student'
+            Student.find_by_user_id(user.id)
+        when 'institution_attendant'
+            InstitutionAttendant.find_by_user_id(user.id)
+        when 'dependency_attendant'
+            DependencyAttendant.find_by_user_id(user.id)
+        end
         self.current_configuration = Configuration.find_by_user_id(user.id)
     end
 
@@ -33,8 +39,7 @@ module SessionsHelper
     def current_student?(student)
         student == current_student
     end
-
-    def current_configuration=(configuration)
+        def current_configuration=(configuration)
         @current_configuration = configuration
     end
 
@@ -45,9 +50,42 @@ module SessionsHelper
         configuration == current_configuration
     end
 
+    def current_institution_attendant=(institution_attendant)
+        @current_institution_attendant = institution_attendant
+    end
+
+    def current_institution_attendant
+        @current_institution_attendant ||= InstitutionAttendant.find_by_user_id(current_institution_attendant.id)
+    end
+    def current_institution_attendant?(institution_attendant)
+        institution_attendant == current_institution_attendant
+    end
+
+
+
+    def current_dependency_attendant=(dependency_attendant)
+        @current_dependency_attendant = dependency_attendant
+    end
+
+    def current_dependency_attendant
+        @current_dependency_attendant ||= DependencyAttendant.find_by_user_id(current_dependency_attendant.id)
+    end
+    def current_dependency_attendant?(dependency_attendant)
+        dependency_attendant == current_dependency_attendant
+    end
+
+
+
     def sign_out
         self.current_user = nil
-        self.current_student = nil
+        case self.current_student.role
+        when 'student'
+            self.current_student = nil
+        when 'institution_attendant'
+            self.current_institution_attendant = nil
+        when 'dependency_attendant'
+            self.current_dependency_attendant = nil
+        end
         self.current_configuration = nil
         cookies.delete(:remember_token)
     end

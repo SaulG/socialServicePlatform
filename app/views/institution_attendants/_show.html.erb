@@ -1,0 +1,16 @@
+<legend>
+    Informacion de la institucion
+</legend>
+
+<dl class="dl-horizontal">
+    <% if !current_institution_attendant.nil? %>
+</dl>
+<%= button_to "Editar informacion institutional", edit_institution_attendant_path(current_institution_attendant), method: :get, class:"btn btn-primary" %>
+<% else %>
+<small class="muted">
+    La informacion de la institucion no ha sido actualizada aun.
+</small>
+<br/>
+<%= button_to "Agregar informacion institucional", new_institution_attendant_path,
+    method: :get, class:"btn btn-primary" %>
+<% end %>

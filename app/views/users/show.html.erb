@@ -67,7 +67,12 @@
         <br/>
         <%= button_to "Editar informacion personal",
             edit_user_path(current_user), method: :get, class:"btn btn-primary" %>
+        <% case @user.role %>
+        <% when 'student'%>
         <%= render'students/show' %>
+        <% when 'student'%>
+        <% when 'student'%>
+        <% end %>
     </aside>
 
 </div>

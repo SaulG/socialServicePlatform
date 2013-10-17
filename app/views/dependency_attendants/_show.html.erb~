@@ -1,0 +1,45 @@
+<legend>
+    Informacion de la dependencia
+</legend>
+
+<dl class="dl-horizontal">
+    <% if !current_dependency.nil? %>
+    <dt>
+        <strong>
+            Matricula
+        </strong>
+    </dt>
+    <dd>
+        <% if current_student.enrollment.nil? %>
+        <small class="muted">
+            La informacion de la matricula no ha sido actualizada aun.
+        </small>
+        <% else %>
+        <%= current_student.enrollment %>
+        <% end %>
+    </dd>
+    <dt>
+        <strong>
+           Institucion
+        </strong>
+    </dt>
+    <dd>
+        <% if current_student.institution_id.nil? %>
+        <small class="muted">
+            La informacion de la institucion no ha sido actualizada aun.
+        </small>
+        <% else %>
+        <%= Institution.find_by_id(current_student.institution_id).name%>
+        <% end %>
+    </dd>
+</dl>
+<br/>
+<%= button_to "Editar informacion estudiantil", edit_student_path(current_student), method: :get, class:"btn btn-primary" %>
+<% else %>
+<small class="muted">
+    La informacion estudiantil no ha sido actualizada aun.
+</small>
+<br/>
+<%= button_to "Agregar informacion estudiantil", new_student_path,
+    method: :get, class:"btn btn-primary" %>
+<% end %>
