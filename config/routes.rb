@@ -1,5 +1,17 @@
 SocialServicePlatform::Application.routes.draw do
 
+  get "dependency/create"
+
+  get "dependency/edit"
+
+  get "dependency/show"
+
+  get "dependency/update"
+
+  get "dependency/destroy"
+
+  get "dependency/new"
+
     get '/getInstitutionsNames', to: 'institutions#getInstitutionsNames', via: :get
 
     resources :users
