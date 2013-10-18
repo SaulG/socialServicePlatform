@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131016210127) do
+ActiveRecord::Schema.define(:version => 20131018174515) do
 
   create_table "addresses", :force => true do |t|
     t.integer  "user_id"
@@ -37,6 +37,14 @@ ActiveRecord::Schema.define(:version => 20131016210127) do
     t.string   "number"
     t.datetime "created_at",        :null => false
     t.datetime "updated_at",        :null => false
+  end
+
+  create_table "dependencies", :force => true do |t|
+    t.string   "name"
+    t.integer  "type_of_administration_id"
+    t.integer  "location_id"
+    t.datetime "created_at",                :null => false
+    t.datetime "updated_at",                :null => false
   end
 
   create_table "dependency_attendants", :force => true do |t|
@@ -73,6 +81,14 @@ ActiveRecord::Schema.define(:version => 20131016210127) do
 
   add_index "institutions", ["name"], :name => "index_institutions_on_name", :unique => true
 
+  create_table "locations", :force => true do |t|
+    t.decimal  "latitude",    :precision => 15, :scale => 10, :default => 0.0
+    t.decimal  "longitude",   :precision => 15, :scale => 10, :default => 0.0
+    t.integer  "location_id"
+    t.datetime "created_at",                                                   :null => false
+    t.datetime "updated_at",                                                   :null => false
+  end
+
   create_table "roles", :force => true do |t|
     t.string   "type"
     t.datetime "created_at", :null => false
@@ -85,6 +101,12 @@ ActiveRecord::Schema.define(:version => 20131016210127) do
     t.datetime "updated_at",     :null => false
     t.integer  "institution_id"
     t.integer  "user_id"
+  end
+
+  create_table "type_of_administrations", :force => true do |t|
+    t.string   "type"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "type_of_numbers", :force => true do |t|

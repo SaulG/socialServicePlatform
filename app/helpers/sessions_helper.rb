@@ -2,7 +2,7 @@ module SessionsHelper
     def sign_in(user)
         cookies.permanent[:remember_token] = user.remember_token
         self.current_user = user
-        case self.current_student.role
+        case self.current_user.role
         when 'student'
             Student.find_by_user_id(user.id)
         when 'institution_attendant'
@@ -77,8 +77,7 @@ module SessionsHelper
 
 
     def sign_out
-        self.current_user = nil
-        case self.current_student.role
+        case self.current_user.role
         when 'student'
             self.current_student = nil
         when 'institution_attendant'
@@ -86,6 +85,7 @@ module SessionsHelper
         when 'dependency_attendant'
             self.current_dependency_attendant = nil
         end
+        self.current_user = nil
         self.current_configuration = nil
         cookies.delete(:remember_token)
     end
