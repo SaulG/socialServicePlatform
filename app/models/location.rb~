@@ -1,0 +1,9 @@
+class Location < ActiveRecord::Base
+    attr_accessible :latitude, :location_id, :longitude
+    def latitude=(latitude)
+        @latitude = latitude
+    end
+    def longitude=(longitude)
+        @longitude = longitude
+    end
+end

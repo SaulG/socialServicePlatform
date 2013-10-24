@@ -1,0 +1,6 @@
+class ChangeLatitudeAndLongitudeOfLocation < ActiveRecord::Migration
+    def change
+        change_table :locations, :latitude, :float
+        change_table :locations, :longitude, :float
+    end
+end

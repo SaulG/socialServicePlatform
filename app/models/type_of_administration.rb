@@ -1,4 +1,4 @@
 class TypeOfAdministration < ActiveRecord::Base
-    attr_accessible :type
-    validates :type, presence: true
+    attr_accessible :name
+    validates :name, presence: true
 end
