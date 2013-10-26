@@ -1,15 +1,23 @@
 SocialServicePlatform::Application.routes.draw do
-  get "students/new"
-
+    get '/getInstitutionsNames', to: 'institutions#getInstitutionsNames', via: :get
     resources :users
+    resources :programs
+    resources :dependencies
+    resources :students
+    resources :configurations
+    resources :institution_attendants
+    resources :dependency_attendants
     resources :sessions, only: [:new, :create, :destroy]
-
-    match '/signup', to: 'users#new'
-    match '/signin', to: 'sessions#new'
-    match '/signout', to: 'sessions#destroy', via: :delete
-
     root to: 'static_pages#home'
 
+    match '/programs/new/:id', to: 'programs#new'
+    match '/programs/show', to: 'programs#show', :as => 'programs'
+
+    match '/signup/:role', to: 'users#new', :as => 'signup'
+    match '/signout', to: 'sessions#destroy', via: :delete
+
+
+    match '/prueba', to: 'students#field_institutions'
     match '/home', to: 'static_pages#home'
     match '/help', to: 'static_pages#help'
     match '/contact', to: 'static_pages#contact'

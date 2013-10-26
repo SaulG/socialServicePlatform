@@ -7,6 +7,7 @@ class CreatePrograms < ActiveRecord::Migration
       t.integer :turn_id
       t.integer :dependency_id
       t.integer :dependency_attendant_id
+
       t.timestamps
     end
   end

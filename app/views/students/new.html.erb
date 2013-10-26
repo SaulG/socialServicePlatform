@@ -1,14 +1,14 @@
-<% provide(:title, 'Student information') %>
+<% provide(:title, 'Creando informacion estudiantil') %>
 <div class="row">
     <div class="span6 offset3">
         <%= form_for(@student) do |f| %>
         <%=render 'shared/error_student_messages' %>
-        <h2>Student information</h2>
-        <%= f.label "Institution" %>
+        <h2>Informacion estudiantil</h2>
+        <%= f.label "Institucion" %>
         <%= f.text_field :institution_name, id: "institution-name" %>
-        <%= f.label "Enrollment" %>
+        <%= f.label "Matricula" %>
         <%= f.text_field :enrollment %>
-        <%= f.submit "Add information", class: "btn btn-large
+        <%= f.submit "Agregar informacion", class: "btn btn-large
                                                   btn-primary" %>
         <% end %>
     </div>

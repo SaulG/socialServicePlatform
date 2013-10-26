@@ -1,38 +1,14 @@
-<% provide(:title, 'Sign up') %>
-<h1>Sign up</h1>
+<% provide(:title, 'Student information') %>
 <div class="row">
     <div class="span6 offset3">
         <%= form_for(@student) do |f| %>
         <%=render 'shared/error_student_messages' %>
-        <h2>User account</h2>
-        <%= f.label :email %>
-        <%= f.text_field :email %>
-        <br/>
-        <%= f.label :password %>
-        <%= f.password_field :password %>
-        <br/>
-        <%= f.label :password_confirmation, "Confirmation" %>
-        <%= f.password_field :password_confirmation %>
-
-        <h2>Personal information</h2>
-        <%= f.label :name %>
-        <%= f.text_field :name %>
-        <br/>
-        <%= f.fields_for :address do |builder| %>
-        <%= builder.label :description, "Address" %>
-        <%= builder.text_area :description, :rows=>"2" %>
-        <% end %>
-        <%= f.fields_for :contact_number do |builder| %>
-        <%= builder.label "Contact number" %>
-        <%= collection_select(builder, :type_of_number_id,
-        TypeOfNumber.all.collect{|p| [p.id, p.type_of_number]}, :prompt => 'Select a
-        type of number')%>
-        <%= builder.text_field :number%>
-        <% end %>
-        <h2>Academic information</h2>
-
-
-        <%= f.submit "Create my account", class: "btn btn-large
+        <h2>Student information</h2>
+        <%= f.label "Institution" %>
+        <%= f.text_field :institution_name, id: "institution-name" %>
+        <%= f.label "Enrollment" %>
+        <%= f.text_field :enrollment %>
+        <%= f.submit "Add information", class: "btn btn-large
                                                   btn-primary" %>
         <% end %>
     </div>

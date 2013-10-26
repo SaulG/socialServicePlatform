@@ -1,2 +1,79 @@
 <% provide(:title, @user.name) %>
-<h1><%= @user.name %></h1>
+<div class="row">
+    <aside class="span12">
+        <section>
+            <h1>
+                Perfil
+            </h1>
+        </section>
+        <legend>
+            Informacion personal
+        </legend>
+        <dl class="dl-horizontal">
+            <dt> 
+                <strong>
+                    Nombre completo
+                </strong>
+            </dt>
+            <dd>
+                <% if @user.name.nil? %>
+                <small class="muted">
+                    La informacion de tu nombre completo no ha sido actualizada.
+                </small>
+                <% else %>
+                <%= @user.name %>
+                <%= @user.last_name %>
+                <% end %>
+            </dd>
+            <dt>
+                <strong>
+                    <i class="icon-envelope"></i>
+                </strong>
+            </dt>
+            <dd>
+                <%=@user.email %>
+            </dd>
+            <dt>
+                <strong>
+                    Direccion
+                </strong>
+            </dt>
+            <dd>
+                <% if @user.address.nil? %>
+                <small class="muted">
+                    La informacion de tu direccion no ha sido
+                    actualizada aun.
+                </small>
+                <% else %>
+                <%= @user.address.description %>
+                <% end %>
+            </dd>
+            <dt>
+                <strong>
+                    Contacto
+                </strong>
+            </dt>
+            <dd>
+                <% if @user.contact_number.nil? %>
+                <small class="muted">
+                    La informacion del numero de contacto no ha sido actualizada aun.
+                </small>
+                <% else %>                
+                <%= TypeOfNumber.find_by_id(@user.contact_number.type_of_number_id).type_of_number%>
+                <%= @user.contact_number.number%>
+                <% end %>
+            </dd>
+        </dl>    
+        <br/>
+        <%= button_to "Editar informacion personal",
+            edit_user_path(current_user), method: :get, class:"btn btn-primary" %>
+        <% case @user.role %>
+        <% when 'student'%>
+        <%= render'students/show' %>
+        <% when 'dependency_attendant'%>
+        <%= render 'dependency_attendants' %>
+        <% when 'institution_attendant'%>
+        <% end %>
+    </aside>
+
+</div>

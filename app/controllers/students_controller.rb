@@ -11,7 +11,6 @@ class StudentsController < ApplicationController
 
     def new
         @student = Student.new()
-        @student.user_id = current_user.id
     end
 
     def show

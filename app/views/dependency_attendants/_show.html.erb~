@@ -3,43 +3,29 @@
 </legend>
 
 <dl class="dl-horizontal">
-    <% if !current_dependency.nil? %>
+    <% if !current_dependency_attendant.nil? %>
     <dt>
         <strong>
-            Matricula
+            Dependencia de procedencia
         </strong>
     </dt>
     <dd>
-        <% if current_student.enrollment.nil? %>
+        <% if current_dependency_attendant.dependency_id.nil? %>
         <small class="muted">
-            La informacion de la matricula no ha sido actualizada aun.
+            La informacion de la dependencia de procedencia no ha sido
+            actualizada aun.
         </small>
         <% else %>
-        <%= current_student.enrollment %>
-        <% end %>
-    </dd>
-    <dt>
-        <strong>
-           Institucion
-        </strong>
-    </dt>
-    <dd>
-        <% if current_student.institution_id.nil? %>
-        <small class="muted">
-            La informacion de la institucion no ha sido actualizada aun.
-        </small>
-        <% else %>
-        <%= Institution.find_by_id(current_student.institution_id).name%>
+        <%= Dependency.find(current_dependency_attendant.dependency_id).name %>
         <% end %>
     </dd>
 </dl>
-<br/>
-<%= button_to "Editar informacion estudiantil", edit_student_path(current_student), method: :get, class:"btn btn-primary" %>
+<%= button_to "Editar informacion de la dependencia", edit_dependency_attendant_path(current_dependency_attendant), method: :get, class:"btn btn-primary" %>
 <% else %>
 <small class="muted">
-    La informacion estudiantil no ha sido actualizada aun.
+    La informacion de la dependencia no ha sido actualizada aun.
 </small>
 <br/>
-<%= button_to "Agregar informacion estudiantil", new_student_path,
+<%= button_to "Agregar informacion de la dependencia", new_dependency_attendant_path,
     method: :get, class:"btn btn-primary" %>
 <% end %>

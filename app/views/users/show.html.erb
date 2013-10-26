@@ -70,8 +70,9 @@
         <% case @user.role %>
         <% when 'student'%>
         <%= render'students/show' %>
-        <% when 'student'%>
-        <% when 'student'%>
+        <% when 'dependency_attendant'%>
+        <%= render 'dependency_attendants/show' %>
+        <% when 'institution_attendant'%>
         <% end %>
     </aside>
 

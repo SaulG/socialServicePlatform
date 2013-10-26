@@ -4,6 +4,21 @@
 
 <dl class="dl-horizontal">
     <% if !current_dependency_attendant.nil? %>
+    <dt>
+        <strong>
+            Dependencia
+        </strong>
+    </dt>
+    <dd>
+        <% if current_dependency_attendant.dependency_id.nil? %>
+        <small class="muted">
+            La informacion de la dependencia de procedencia no ha sido
+            actualizada aun.
+        </small>
+        <% else %>
+        <%= Dependency.find(current_dependency_attendant.dependency_id).name %>
+        <% end %>
+    </dd>
 </dl>
 <%= button_to "Editar informacion de la dependencia", edit_dependency_attendant_path(current_dependency_attendant), method: :get, class:"btn btn-primary" %>
 <% else %>

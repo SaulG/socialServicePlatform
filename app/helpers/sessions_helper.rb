@@ -4,11 +4,11 @@ module SessionsHelper
         self.current_user = user
         case self.current_user.role
         when 'student'
-            Student.find_by_user_id(user.id)
+            current_student = Student.find_by_user_id(user.id)
         when 'institution_attendant'
-            InstitutionAttendant.find_by_user_id(user.id)
+            current_institution_attendant = InstitutionAttendant.find_by_user_id(user.id)
         when 'dependency_attendant'
-            DependencyAttendant.find_by_user_id(user.id)
+            current_dependency_attendant = DependencyAttendant.find_by_user_id(user.id)
         end
         self.current_configuration = Configuration.find_by_user_id(user.id)
     end
@@ -55,7 +55,7 @@ module SessionsHelper
     end
 
     def current_institution_attendant
-        @current_institution_attendant ||= InstitutionAttendant.find_by_user_id(current_institution_attendant.id)
+        @current_institution_attendant ||= InstitutionAttendant.find_by_user_id(current_user.id)
     end
     def current_institution_attendant?(institution_attendant)
         institution_attendant == current_institution_attendant
@@ -68,7 +68,7 @@ module SessionsHelper
     end
 
     def current_dependency_attendant
-        @current_dependency_attendant ||= DependencyAttendant.find_by_user_id(current_dependency_attendant.id)
+        @current_dependency_attendant ||= DependencyAttendant.find_by_user_id(current_user.id)
     end
     def current_dependency_attendant?(dependency_attendant)
         dependency_attendant == current_dependency_attendant

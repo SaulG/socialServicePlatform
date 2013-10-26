@@ -1,0 +1,23 @@
+<% provide(:title, 'Programas') %>
+<div class="row">
+    <aside class="span4">
+        <section>
+            <h1>
+               Programas
+            </h1>
+        </section>
+        <legend> 
+            Mis programas
+        </legend>
+        <% if current_dependency_attendant.programs.blank? %>
+        <small class="muted">
+            No ha agregado ningun programa aun.
+        </small>
+        <% else %>
+        <% end %>
+        <p/>
+        <section/>
+        <%= button_to "Agregar un nuevo programa",
+            new_program_path, class:"btn btn-primary" %>
+    </aside>
+</div>

@@ -25,7 +25,7 @@ class DependencyAttendantsController < ApplicationController
     def update
         @dependency_attendant = DependencyAttendant.find(params[:id])
         if @dependency_attendant.update_attributes(params[:dependency_attendant])
-            flash[:success] = "La informacion estudiantil ha sido actualizada."
+            flash[:success] = "La informacion de la dependencia ha sido actualizada."
             redirect_to current_user
         else
             render 'edit'

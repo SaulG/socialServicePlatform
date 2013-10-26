@@ -1,4 +1,6 @@
 class ConfigurationsController < ApplicationController
+    before_filter :correct_configuration, only: [:edit, :update, :show]
+
     def create
         @configuration = Configuration.new(params[:configuration])
         @configuration.user_id = current_user.id
@@ -32,5 +34,11 @@ class ConfigurationsController < ApplicationController
         if !@configuration
             @configuration = ::Configuration.new
         end
+    end
+
+    private
+    def correct_configuration
+        @configuration = ::Configuration.find(params[:id])
+        redirect_to edit_configuration_path(current_configuration) unless current_configuration?(@configuration)
     end
 end

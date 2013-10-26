@@ -6,7 +6,11 @@
             <nav>
                 <ul class ="nav pull-right">
                     <% if signed_in? %>
+                    <% if current_user.role == 'dependency_attendant'%>
+                    <li><%= link_to "Programas",programs_path(:id => current_dependency_attendant.id) %></li>
+                    <% else %>
                     <li><%= link_to "Principal", '#' %></li>
+                    <% end %>
                     <li><%= link_to "Notificaciones",'#'%></li>
                     <li id="fat-menu" class="dropdown">
                         <a href="#" class="dropdown-toggle"
@@ -15,7 +19,7 @@
                         </a>
                         <ul class="dropdown-menu">
                             <li><%= link_to "Perfil", current_user%></li>
-                            <li><%= link_to "Configuracion", edit_configuration_path(current_configuration) %></li>
+                            <li><%= link_to "Configuracion", edit_configuration_path %></li>
                             <li class="divider"></li>
                             <li>
                                 <%= link_to "Cerrar sesion", signout_path, method:
@@ -32,5 +36,4 @@
     <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
     <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
     <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
-    <%= javascript_include_tag 'jquery.ui.addresspicker.js' %>
 </header>

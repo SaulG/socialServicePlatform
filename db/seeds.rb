@@ -10,3 +10,6 @@ institutions = Institution.create([{name:'Facultad de Ingenieria Mecanica y Elec
                                       {name:'Facultad de Arquitectura'},{name:'Facultad de Ingenieria Civil'}])
 frequencies = Frequency.create([{name:'Cada dia'},{name:'Cada semana'},{name:'Cada mes'}])
 type_of_administration = TypeOfAdministration.create([{name:'Publica'},{name:'Privada'}])
+turns = Turn.create([{name:'Matutino'},{name:'Vespertino'},{name:'Indefinido'},{name:'Nocturno'}])
+skills = Skill.create([{name:'Programacion'},{name:'Trabajo en equipo'},{name:'Control del estres'},{name:'Iniciativa'},{name:'Innovacion y creatividad'},{name:'Argumentacion'}])
+aptitudes = Aptitude.create([{name:'Respeto'},{name:'Sinceridad'},{name:'Calma'},{name:'Tolerancia'}])
