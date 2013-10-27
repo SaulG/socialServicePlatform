@@ -13,17 +13,27 @@
         <%= f.text_area :description, rows:"3" %>
         
         <%= f.label "Cantidad de vacantes" %>
-        <%= f.number_field :quantity_of_students, class:"span1" %>
+        <%= f.number_field :quantity_of_students, class:"span1", in: 1..20 %>
         
         <%= f.label "Turno" %>
         <%= f.collection_select :turn_id,
             Turn.all, :id, :name, :prompt =>
         "Seleccione el turno" %>
         
+        <br/>
+        <%= f.label "Seleccione las habilidades del vacante" %>
+        <% for skill in Skill.all %>
+        <%= f.check_box :skills, :name => "program[skills][]", skill %>
+        <br/>
         
+        <%= f.label "Seleccione las aptitudes que desea que los
+        vacantes tengan:" %>
+
         <%= f.submit "Crear programa", class:"btn btn-large
         btn-primary" %>
-
+        
+        <br/>
+        
         <% end %>
     </div>
 </div>

@@ -18,6 +18,6 @@
         <p/>
         <section/>
         <%= button_to "Agregar un nuevo programa",
-            new_program_path(:id => current_dependency_attendant.id), class:"btn btn-primary" %>
+            new_program_path, class:"btn btn-primary" %>
     </aside>
 </div>

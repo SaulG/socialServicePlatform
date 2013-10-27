@@ -1,2 +1,2 @@
 <%= provide(:title, 'Nosotros')%>
-<h1>Nosotros</h1>
+<h1>About</h1>

@@ -13,22 +13,43 @@
         <%= f.text_area :description, rows:"3" %>
         
         <%= f.label "Cantidad de vacantes" %>
-        <%= f.number_field :quantity_of_students, class:"span1", in: 1..20 %>
+        <%= f.number_field :quantity_of_students, class:"span1", in:
+        1..20, value:"0" %>
         
         <%= f.label "Turno" %>
         <%= f.collection_select :turn_id,
             Turn.all, :id, :name, :prompt =>
         "Seleccione el turno" %>
+        
         <br/>
-        <%= f.label "Seleccione las habilidades que desea que los
-        vacantes tengan:" %>
-        <br/>
+
+        <p>
+        <%= f.label "Seleccione las habilidades del vacante" %>
+        <div class="small muted">
+            <% for skill in Skill.all %>
+            <%= skill.name %>
+            <br/>
+            <% end %>
+        </div>
+        </p>
+        
+        <p>
         <%= f.label "Seleccione las aptitudes que desea que los
         vacantes tengan:" %>
+        <div class="small muted">
+            <% for aptitude in Aptitude.all %>
+            <%= aptitude.name %>
+            <br/>
+            <% end %>
+        </div>
+        </p>
+
 
         <%= f.submit "Crear programa", class:"btn btn-large
         btn-primary" %>
+        
         <br/>
+        
         <% end %>
     </div>
 </div>
