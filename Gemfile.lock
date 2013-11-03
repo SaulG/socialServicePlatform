@@ -1,4 +1,11 @@
 GIT
+  remote: git://github.com/bokmann/font-awesome-rails.git
+  revision: 25bd7287274897a22dd03d35b9fe7faa9a3b9dbe
+  specs:
+    font-awesome-rails (4.0.1.0)
+      railties (>= 3.2, < 5.0)
+
+GIT
   remote: git://github.com/stephenbaldwin/fuelux-rails.git
   revision: 9319f11e368c3f89c48d2621f526c0864762cba4
   specs:
@@ -229,6 +236,7 @@ DEPENDENCIES
   cucumber-rails (= 1.2.1)
   database_cleaner (= 0.7.0)
   factory_girl_rails (= 4.1.0)
+  font-awesome-rails!
   fuelux-rails!
   geocoder (~> 1.1.8)
   gmaps4rails (~> 2.0.3)
