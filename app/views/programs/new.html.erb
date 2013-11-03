@@ -26,10 +26,17 @@
         <p>
         <%= f.label "Seleccione las habilidades del vacante" %>
         <div class="small muted">
-            <% for skill in Skill.all %>
-            <%= skill.name %>
-            <br/>
+            <% Skill.all.each do | skill | %>
+            <label class="li">
+                <%= check_box_tag :skill_ids, skill.id, false, :name =>
+                'skills[]' %> 
+                <u>
+                    <%= skill.name%>
+                </u>
+            </label><br />
+            
             <% end %>
+            
         </div>
         </p>
         
@@ -37,17 +44,19 @@
         <%= f.label "Seleccione las aptitudes que desea que los
         vacantes tengan:" %>
         <div class="small muted">
-            <% for aptitude in Aptitude.all %>
-            <%= aptitude.name %>
-            <br/>
+            <% Aptitude.all.each do | aptitude | %>
+            <label class="li">
+                <%= check_box_tag :aptitude_ids, aptitude.id, false, :name =>
+                'aptitudes[]' %> 
+                <u>
+                    <%= aptitude.name%>
+                </u>
+            </label><br />
+
             <% end %>
         </div>
         </p>
-
-
-        <%= f.submit "Crear programa", class:"btn btn-large
-        btn-primary" %>
-        
+        <%= f.submit "Crear programa", class:"btn btn-large btn-primary" %>        
         <br/>
         
         <% end %>

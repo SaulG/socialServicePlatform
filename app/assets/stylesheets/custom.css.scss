@@ -170,3 +170,9 @@ input, textarea, select, .uneditable-input {
 
 /* text wrapping */
 #text-wrapping  { white-space:nowrap; }
+#map img { 
+  max-width: none;
+}
+#map label { 
+  width: auto; display:inline; 
+} 

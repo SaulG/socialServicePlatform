@@ -1,9 +1,11 @@
 class Dependency < ActiveRecord::Base
-    attr_accessible :name, :type_of_administration_id, :location_attributes, :dependency_address_attributes
+    attr_accessible :name, :type_of_administration_id, :location_attributes, :dependency_address_attributes, :gmaps
 
     before_save :geocode_the_dependency_address
 
     belongs_to :type_of_administration
+
+    has_many :programs
 
     has_one :dependency_address, dependent: :destroy
     has_one :location, dependent: :destroy

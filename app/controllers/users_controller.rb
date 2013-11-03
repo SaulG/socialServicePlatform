@@ -7,6 +7,17 @@ class UsersController < ApplicationController
     def create
         @user = User.new(params[:user])
         if @user.save
+            case @user.role
+            when 'student'
+                s = Student.new(user_id:@user.id)
+                s.save
+            when 'institution_attendant'
+                i = InstitutionAttendant.new(user_id:@user.id)
+                i.save
+            when 'dependency_attendant'
+                d = DependencyAttendant.new(user_id:@user.id)
+                d.save
+            end
             sign_in @user
             flash[:success] = "Bienvenido a la plataforma del Servicio Social."
             redirect_to @user

@@ -1,0 +1,8 @@
+$(document).ready(function(){
+        handler = Gmaps.build('Google');
+        handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
+                handler.map.centerOn({ lat: 40, lng: 5 });
+                    handler.addMarkers(markers);
+            });        
+        
+  });

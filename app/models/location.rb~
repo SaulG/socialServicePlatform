@@ -1,9 +1,4 @@
 class Location < ActiveRecord::Base
+    acts_as_gmappable :process_geocoding => false
     attr_accessible :latitude, :location_id, :longitude
-    def latitude=(latitude)
-        @latitude = latitude
-    end
-    def longitude=(longitude)
-        @longitude = longitude
-    end
 end

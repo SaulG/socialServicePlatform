@@ -1,5 +1,6 @@
 class Program < ActiveRecord::Base
-    attr_accessible :dependency_attendant_id, :dependency_id, :description, :name, :quantity_of_students, :turn_id
+    attr_accessible :dependency_attendant_id, :dependency_id, :description, :name, :quantity_of_students, :turn_id, :id
+    after_save{id = self.id}
     belongs_to :dependency_attendant
     belongs_to :dependency
     belongs_to :turn

@@ -79,7 +79,7 @@ p {
 /* footer */
 
 footer {
-  margin-top: 45px;
+  margin-top:  45px;
   padding-top: 5px;
   border-top: 1px solid $grayMediumLight;
   color: $grayLight;
@@ -147,3 +147,26 @@ input, textarea, select, .uneditable-input {
   margin-button:15px;
   @include box_sizing;
 }
+
+#error_explanation {
+  color: #f00;
+  ul {
+    list-style: none;
+    margin: 0 0 18px 0;
+  }
+}
+
+
+.field_with_errors{
+  @extend .control-group;
+  @extend .error;
+}
+
+#links{
+    border-right: 1px solid gray;
+      padding:15px;
+
+}
+
+/* text wrapping */
+#text-wrapping  { white-space:nowrap; }
