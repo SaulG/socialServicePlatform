@@ -17,11 +17,12 @@ class ProgramsController < ApplicationController
     def create
         @program = Program.new(params[:program])
         @program.dependency_attendant_id = current_dependency_attendant.id
-        @program.save!
+        @program.save
+        @program.reload
         @skills = Skill.find(params[:skills])
         @aptitudes = Aptitude.find(params[:aptitudes])
         @program.skills << @skills
-        @program.aptitudes << @aptitudes
+#        @program.aptitudes << @aptitudes
         if @program.save
             flash[:success] = "Ha sido guardad la informacion del programa."
             redirect_to programs_path

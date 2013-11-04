@@ -4,8 +4,8 @@ gem 'rails', '3.2.14'
 gem 'bootstrap-sass', '2.1'
 gem 'bcrypt-ruby', '3.0.1'
 gem 'jquery-rails', '2.0.2'
-gem 'fuelux-rails', :git => 'git://github.com/stephenbaldwin/fuelux-rails.git'
-gem "font-awesome-rails", :git => 'git://github.com/bokmann/font-awesome-rails.git'
+gem 'jquery-ui-rails', :git => 'git://github.com/joliss/jquery-ui-rails.git'
+gem 'font-awesome-rails', :git => 'git://github.com/bokmann/font-awesome-rails.git'
 
 group :development, :test do
     gem 'sqlite3', '1.3.5'
