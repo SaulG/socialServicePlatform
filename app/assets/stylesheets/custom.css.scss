@@ -1,5 +1,8 @@
 @import "bootstrap";
 
+/*custom font*/
+@import url(http://fonts.googleapis.com/css?family=Merriweather+Sans);
+
 /* mixins variables */
 $grayMediumLight: #eaeaea;
 
@@ -9,10 +12,15 @@ $grayMediumLight: #eaeaea;
   box-sizing: border-box;
 }
 
+.pull-center{
+  align:center;
+}
+
 /* header */
 #logo {
   float: left;
   margin-right: 10px;
+  background: white;
   font-size: 1.7em;
   color: white;
   text-transform: uppercase;
@@ -26,13 +34,18 @@ $grayMediumLight: #eaeaea;
   }
 }
 
+
+
+
 /* General */
 html {
   overflow-y: scroll;
 }
 
 body {
-  padding-top: 60px;
+  padding-top: 100px;
+  background: #00000;
+  font-family: 'Merriweather Sans', arial, verdana;
 }
 
 section {

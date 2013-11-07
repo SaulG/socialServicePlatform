@@ -1,5 +1,8 @@
 @import "bootstrap";
 
+/*custom font*/
+@import url(http://fonts.googleapis.com/css?family=Merriweather+Sans);
+
 /* mixins variables */
 $grayMediumLight: #eaeaea;
 
@@ -13,6 +16,7 @@ $grayMediumLight: #eaeaea;
 #logo {
   float: left;
   margin-right: 10px;
+  background: white;
   font-size: 1.7em;
   color: white;
   text-transform: uppercase;
@@ -32,7 +36,9 @@ html {
 }
 
 body {
-  padding-top: 60px;
+  padding-top: 100px;
+  background: #00000;
+  font-family: 'Merriweather Sans', arial, verdana;
 }
 
 section {
@@ -170,3 +176,9 @@ input, textarea, select, .uneditable-input {
 
 /* text wrapping */
 #text-wrapping  { white-space:nowrap; }
+#map img { 
+  max-width: none;
+}
+#map label { 
+  width: auto; display:inline; 
+} 

@@ -1,0 +1,93 @@
+// Place all the styles related to the ProcessStudents controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.breadcrumb {
+  display: inline-block;
+  overflow: hidden;
+  border-radius: 5px;
+  //Contador de el numero de procesos
+  counter-reset: flag; 
+  text-align:center;
+    
+}
+
+.prueba{
+  width: 50%;
+  text-align:center;  
+}
+.breadcrumb a {
+  text-decoration: none;
+  outline: none;
+  display: block;
+  float: left;
+  font-size: 12px;
+  line-height: 36px;
+  color: white;
+  //se agrega margen a la izquierda para agregar contadores
+  padding: 0 10px 0 60px;
+  background: #666;
+  background: linear-gradient(#666, #333);
+  position: relative;
+}
+
+.breadcrumb a:first-child{
+  border-top-left-radius:5px;
+  border-bottom-left-radius:5px;    
+}
+
+.breadcrumb a:last-child{
+  border-top-right-radius:5px;
+  border-bottom-right-radius:5px;    
+}
+
+//se agregan estilos cuando esten activos los links
+.breadcrumb a.active, .breadcrumb a:hover{
+  background: #333;
+  background: linear-gradient(#333, #000);
+}
+
+.breadcrumb a.active:after, .breadcrumb a:hover:after {
+  background: #333;
+  background: linear-gradient(135deg, #333, #000);
+}
+
+// se agregan los contadores de los procesos
+.breadcrumb a:before {
+  content: counter(flag);
+  counter-increment: flag;
+  border-radius: 100%;
+  width: 20px;
+  height: 20px;
+  line-height: 20px;
+  margin: 8px 0;
+  position: absolute;
+  top: 0;
+  left: 30px;
+  background: #444;
+  background: linear-gradient(#444, #222);
+  font-weight: bold;
+}
+
+
+.flat a, .flat a:after {
+  background: white;
+  color: black;
+  transition: all 0.5s;
+}
+.flat a:before {
+  background: white;
+  box-shadow: 0 0 0 1px #ccc;
+}
+.flat a:hover, .flat a.active, 
+.flat a:hover:after, .flat a.active:after{
+  background: #9EEB62;
+}
+
+
+
+
+
+
+
