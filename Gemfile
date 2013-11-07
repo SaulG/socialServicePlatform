@@ -7,6 +7,10 @@ gem 'jquery-rails', '2.0.2'
 gem 'jquery-ui-rails', :git => 'git://github.com/joliss/jquery-ui-rails.git'
 gem 'font-awesome-rails', :git => 'git://github.com/bokmann/font-awesome-rails.git'
 
+gem 'will_paginate', '~> 3.0'
+gem 'jquery-datatables-rails', github: 'rweng/jquery-datatables-rails'
+
+
 group :development, :test do
     gem 'sqlite3', '1.3.5'
     gem 'rspec-rails','2.11.0'

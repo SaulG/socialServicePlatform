@@ -11,7 +11,10 @@ class ProgramsController < ApplicationController
         @program = Program.find_by_dependency_attendant_id(params[:id])
     end
     def index
-        @programs = Program.find_by_dependency_attendant_id(params[:id])
+        @programs = []
+        @programs << Program.find_by_dependency_attendant_id(current_dependency_attendant.id)
+        @turns = Hash.new()
+        Turn.all.each do |turn| @turns[turn.id] = turn.name end
     end
 
     def create

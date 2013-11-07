@@ -1,22 +1,46 @@
 <% provide(:title, 'Programas') %>
-<div class="row">
-    <aside class="span4">
-        <section>
-            <h1>
-               Programas
-            </h1>
-        </section>
-        <legend> 
-            Mis programas
-        </legend>
-        <% if current_dependency_attendant.programs.blank? %>
-        <small class="muted">
-            No ha agregado ningun programa aun.
-        </small>
-        <% else %>
-        <% end %>
-        <p/>
-        <section/>
-        <%= link_to "Agregar un nuevo programa", new_program_path, class:"btn btn-link" %>
-    </aside>
+<div>
+    <section>
+        <h1>
+            Programas
+        </h1>
+    </section>
+    <legend> 
+        Mis programas
+    </legend>
+    <% if current_dependency_attendant.programs.blank? %>
+    <small class="muted">
+        No ha agregado ningun programa aun.
+    </small>
+    <% else %>
+    <table id="programs" cellpadding="0"
+           cellspacing="0" border="0" class="table table-striped
+                                             table-bordered dataTable">
+            <thead>
+                <tr>
+                    <th>Nombre del programa</th>
+                    <th>Descripcion</th>
+                    <th>Cantidad de alumnos</th>
+                    <th>Turno</th>
+                    <th>Fecha de creacion</th>
+                    <th>Fecha de modificacion</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% @programs.each do|program| %>
+                <tr>
+                    <td><%= link_to(program.name, program) %></td>
+                    <td><%=program.description%></td>
+                    <td><%=program.quantity_of_students%></td>
+                    <td><%=@turns[program.turn_id]%></td>
+                    <td><%=program.created_at%></td>
+                    <td><%=program.updated_at%></td>
+                </tr>
+                <% end %>
+            </tbody>
+    </table>
+    <% end %>
+</p>
+<%= link_to "Agregar un nuevo programa", new_program_path, class:"btn btn-link" %>
+</aside>
 </div>
