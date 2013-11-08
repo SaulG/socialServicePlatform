@@ -14,8 +14,8 @@
 }
 
 .prueba{
-  width: 50%;
-  text-align:center;  
+  width: 66%;
+  text-align:left;  
 }
 .breadcrumb a {
   text-decoration: none;

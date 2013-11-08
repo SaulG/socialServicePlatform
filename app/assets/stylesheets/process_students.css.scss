@@ -43,12 +43,12 @@
 }
 
 //se agregan estilos cuando esten activos los links
-.breadcrumb a.active, .breadcrumb a:hover{
+.breadcrumb a.active{
   background: #333;
   background: linear-gradient(#333, #000);
 }
 
-.breadcrumb a.active:after, .breadcrumb a:hover:after {
+.breadcrumb a.active:after{
   background: #333;
   background: linear-gradient(135deg, #333, #000);
 }
@@ -80,8 +80,7 @@
   background: white;
   box-shadow: 0 0 0 1px #ccc;
 }
-.flat a:hover, .flat a.active, 
-.flat a:hover:after, .flat a.active:after{
+ .flat a.active, .flat a.active:after{
   background: #9EEB62;
 }
 
