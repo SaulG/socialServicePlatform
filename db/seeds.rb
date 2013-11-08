@@ -13,3 +13,4 @@ type_of_administration = TypeOfAdministration.create([{name:'Publica'},{name:'Pr
 turns = Turn.create([{name:'Matutino'},{name:'Vespertino'},{name:'Indefinido'},{name:'Nocturno'}])
 skills = Skill.create([{name:'Programacion'},{name:'Trabajo en equipo'},{name:'Control del estres'},{name:'Iniciativa'},{name:'Innovacion y creatividad'},{name:'Argumentacion'}])
 aptitudes = Aptitude.create([{name:'Respeto'},{name:'Sinceridad'},{name:'Calma'},{name:'Tolerancia'}])
+status_progress = StatusProgress.create([{name:'seleccion'},{name:'entrevista'},{name:'reportes'},{name:'liberacion'},{name:'finalizacion'}])

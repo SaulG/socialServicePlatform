@@ -1,5 +1,5 @@
 class Student < ActiveRecord::Base
-    attr_accessible :user_id, :enrollment, :institution_name, :institution_id
+    attr_accessible :user_id, :enrollment, :institution_name, :institution_id, :status_id
     belongs_to :user
     validates :enrollment, presence: true
     before_save :check_if_institution_exists_and_save_id

@@ -1,0 +1,5 @@
+class AddStatusIdToStudens < ActiveRecord::Migration
+  def change
+    add_column :studens, :status_id, :integer
+  end
+end
