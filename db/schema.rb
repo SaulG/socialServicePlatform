@@ -124,13 +124,6 @@ ActiveRecord::Schema.define(:version => 20131108185743) do
     t.datetime "updated_at",              :null => false
   end
 
-  create_table "programs_aptitudes", :id => false, :force => true do |t|
-    t.integer "program_id",  :null => false
-    t.integer "aptitude_id", :null => false
-  end
-
-  add_index "programs_aptitudes", ["program_id", "aptitude_id"], :name => "index_programs_aptitudes_on_program_id_and_aptitude_id", :unique => true
-
   create_table "programs_skills", :id => false, :force => true do |t|
     t.integer "program_id", :null => false
     t.integer "skill_id",   :null => false

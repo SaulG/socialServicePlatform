@@ -1,16 +1,18 @@
 class ProcessStudentsController < ApplicationController
-  def selection
-  end
+    def show
+    end
+    def selection
+    end
 
-  def interview
-  end
+    def interview
+    end
 
-  def working
-  end
+    def working
+    end
 
-  def release
-  end
+    def release
+    end
 
-  def ending
-  end
+    def ending
+    end
 end

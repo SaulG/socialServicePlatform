@@ -1,20 +1,11 @@
 SocialServicePlatform::Application.routes.draw do
-  get "process_students/selection"
-
-  get "process_students/interview"
-
-  get "process_students/working"
-
-  get "process_students/release"
-
-  get "process_students/ending"
-
     get "prueba/muestra_plazas"
 
     get '/getInstitutionsNames', to: 'institutions#getInstitutionsNames', via: :get
     get '/prueba', to: 'programs#prueba', via: :get
 
     resources :users
+    resources :process_students
     resources :programs
     resources :dependencies
     resources :students

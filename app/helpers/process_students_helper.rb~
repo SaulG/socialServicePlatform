@@ -1,0 +1,24 @@
+module ProcessStudentsHelper
+    SELECCION = 1
+    ENTREVISTA = 2
+    REPORTES = 3
+    LIBERACION = 4
+    FINALIZACION = 5
+
+    def get_message_to_render(status_id)
+        case status_id
+        when SELECCION
+            <% render 'selection'%>
+        when ENTREVISTA
+            <% render 'interview'%>
+        when REPORTES
+            <% render 'reporting'%>
+        when LIBERACION
+            <% render 'release'%>
+        when FINALIZACION
+            <% render 'ending'%>
+        else
+            <% render 'help'%>
+        end
+    end
+end

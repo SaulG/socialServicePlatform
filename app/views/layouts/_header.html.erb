@@ -6,8 +6,11 @@
             <nav>
                 <ul class ="nav pull-right">
                     <% if signed_in? %>
-                    <% if current_user.role == 'dependency_attendant'%>
+                    <% case current_user.role %>
+                    <% when 'dependency_attendant'%>
                     <li><%= link_to "Programas", programs_path(:id => current_dependency_attendant.id) %></li>
+                    <% when 'student' %>
+                    <li><%= link_to "Principal", process_students_path %></li>
                     <% else %>
                     <li><%= link_to "Principal", '#' %></li>
                     <% end %>
