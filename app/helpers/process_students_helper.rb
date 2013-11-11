@@ -24,6 +24,7 @@ module ProcessStudentsHelper
         end
         html << '</div>'
         html << '</center>'
+        return html.html_safe
     end
     def get_message_to_render(status_progress_id)
         case status_progress_id
