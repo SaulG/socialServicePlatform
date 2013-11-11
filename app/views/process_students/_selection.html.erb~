@@ -1,0 +1,33 @@
+<h1>Instrucciones</h1>
+<center>
+    <div class="well prueba">
+        <p>
+        Bienvenido Jorge Lopez a la plataforma del Servicio Social de
+        la SE.
+        <p/>
+        <p>
+        Para comenzar realizar el servicio social se tienen que tener los
+        siguientes requisitos:
+        <br/>
+        <ol>
+<li>
+Seleccionar el link de <b>Consulta de Vacantes</b> el cual lo llevará a
+        otra página donde podrá seleccionar vacantes. El número que se
+        encuentra a lado del link es la cantidad de vacantes
+        seleccionados en donde al inicio se encontrará en ceros (0/5)
+        y al seleccionar la cantidad máxima de vacantes será así
+        (5/5).
+</li> 
+<li>
+    Tener seleccionado 5 opciones de las lista de vacantes, esto para
+    asegurar que tenga algún lugar en la realización del servicio
+    social en alguna dependencia pública.
+</li>
+ </ol>
+Una vez seleccionados los vacantes pasaremos a la etapa de
+        entrevistas, en donde se tendrá una entrevista con el
+        encargado de alguno de los programas que ha seleccionado como
+        vacantes.
+        </p>
+    </div>
+</center>

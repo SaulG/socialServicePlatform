@@ -24,11 +24,12 @@ module ProcessStudentsHelper
         end
         html << '</div>'
         html << '</center>'
+        return html.html_safe
     end
     def get_message_to_render(status_progress_id)
         case status_progress_id
         when SELECCION
-            render 'process_students_controller/selection'
+            render :template => 'process_students_controller/selection'
         when ENTREVISTA
             render :template => 'process_students_controller/interview'
         when REPORTES

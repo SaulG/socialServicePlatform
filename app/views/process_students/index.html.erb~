@@ -1,2 +1,1 @@
-<%= render 'process', :status_progress_id => @student.status_progress_id %>
-<% get_message_to_render(@student.status_progress_id) %>
+<%= get_status_progress_to_render(1) %>
