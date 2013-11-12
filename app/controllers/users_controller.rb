@@ -1,8 +1,8 @@
 class UsersController < ApplicationController
     before_filter :signed_in_user, only: [:edit, :update, :show]
     before_filter :correct_user, only: [:edit, :update, :show]
-#    before_filter :check_filled_information_user
-#    before_filter :check_status_user
+    before_filter :check_filled_information_user
+    before_filter :check_information_role
 
     def create
         @user = User.new(params[:user])
@@ -75,12 +75,19 @@ class UsersController < ApplicationController
     end
 
     def check_filled_information_user
-        logger.info "#{current_user.address.inspect.nil?}"
-        redirect_to edit_user_path(current_user), notice: "Please fill the following information to complete your registration." unless current_user.address.nil?
+        if current_user.name.blank? and current_user.address.blank?
+            redirect_to edit_user_path(current_user), notice: "Por favor, llena tu informacion personal para poder completar el registro."
+        end
+    end
+
+    def check_information_role
+        case current_user.role
+        when 'student'
+            redirect_to edit_student_path(current_user), notice: "Por favor, actualiza tu informacion de estudiante para completar tu registro."
+        end
     end
 
     def check_status_user
-        logger.info "#{current_user.authorization.inspect}"
         redirect_to current_user, notice: "Please wait until the administrator approve your account." unless current_user.authorization.nil?
     end
 end

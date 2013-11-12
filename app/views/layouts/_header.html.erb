@@ -10,7 +10,12 @@
                     <% when 'dependency_attendant'%>
                     <li><%= link_to "Programas", programs_path(:id => current_dependency_attendant.id) %></li>
                     <% when 'student' %>
+                    <% if (Student.exists?(:user_id => current_user.id))
+                    and
+                    (!Student.find_by_user_id(current_user.id).institution_id.blank?)
+                    %>
                     <li><%= link_to "Principal", process_students_path %></li>
+                    <% end %>
                     <% else %>
                     <li><%= link_to "Principal", '#' %></li>
                     <% end %>
