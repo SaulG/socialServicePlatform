@@ -18,8 +18,10 @@ class StudentsController < ApplicationController
     end
 
     def edit
-        @student = Student.find(current_student.id)
-        @student.institution_name = Institution.find(@student.institution_id).name
+        @student = Student.find_by_user_id(params[:id])
+        if !@student.institution_id.blank?
+            @student.institution_name = Institution.find(@student.institution_id).name
+        end
     end
 
     def update

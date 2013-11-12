@@ -1,44 +1,40 @@
 <header class="navbar navbar-fixed-top">
-        <div class="container">
-            <%= link_to image_tag("servicio_social.png",
+    <div class="container">
+        <%= link_to image_tag("servicio_social.png",
             alt:"LogotipoServicioSocial"),
             root_path, id:"logo"%>
-            <nav>
-                <ul class ="nav pull-right">
-                    <% if signed_in? %>
-                    <% case current_user.role %>
-                    <% when 'dependency_attendant'%>
-                    <li><%= link_to "Programas", programs_path(:id => current_dependency_attendant.id) %></li>
-                    <% when 'student' %>
-                    <% if (Student.exists?(:user_id => current_user.id))
-                    and
-                    (!Student.find_by_user_id(current_user.id).institution_id.blank?)
-                    %>
-                    <li><%= link_to "Principal", process_students_path %></li>
-                    <% end %>
-                    <% else %>
-                    <li><%= link_to "Principal", '#' %></li>
-                    <% end %>
-                    <li><%= link_to "Notificaciones",'#'%></li>
-                    <li id="fat-menu" class="dropdown">
-                        <a href="#" class="dropdown-toggle"
+        <nav>
+            <ul class ="nav pull-right">
+                <% if signed_in? %>                
+                <% case current_user.role %>
+                <% when 'dependency_attendant' %>
+                <li><%= link_to "Programas", programs_path(:id => current_dependency_attendant.id) %></li>
+                <% when 'student' %>
+                <% if (Student.exists?(:user_id => current_user.id))%>
+                <li><%= link_to"Principal", process_students_path %></li>
+                <% end %>
+                <% end %>
+
+                <li><%= link_to "Notificaciones",'#'%></li>
+                <li id="fat-menu" class="dropdown">
+                    <a href="#" class="dropdown-toggle"
                            data-toggle="dropdown">
-                            Cuenta <b class="caret"></b>
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li><%= link_to "Perfil", current_user%></li>
-                            <li><%= link_to "Configuracion", edit_configuration_path(current_configuration) %></li>
-                            <li class="divider"></li>
-                            <li>
-                                <%= link_to "Cerrar sesion", signout_path, method:
-                                    "delete" %>
-                            </li>
-                        </ul>
-                    </li>
-                    <% end %>
-                    <li><%= link_to "Ayuda", help_path %></li>
-                </ul>
-            </nav>
+                        Cuenta <b class="caret"></b>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><%= link_to "Perfil", current_user%></li>
+                        <li><%= link_to "Configuracion", edit_configuration_path(current_configuration) %></li>
+                        <li class="divider"></li>
+                        <li>
+                            <%= link_to "Cerrar sesion", signout_path, method:
+                                "delete" %>
+                        </li>
+                    </ul>
+                </li>
+                <% end %>
+                <li><%= link_to "Ayuda", help_path %></li>
+            </ul>
+        </nav>
     </div>
     <% if full_title(yield(:title)) == 'Prueba' %>
     <script src="//maps.google.com/maps/api/js?v=3.13&amp;sensor=false&amp;libraries=geometry"
