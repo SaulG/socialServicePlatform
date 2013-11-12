@@ -5,4 +5,5 @@ class Program < ActiveRecord::Base
     belongs_to :turn
     has_and_belongs_to_many :skills
     has_and_belongs_to_many :aptitudes
+    has_and_belongs_to_many :students
 end

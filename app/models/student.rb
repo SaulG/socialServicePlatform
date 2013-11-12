@@ -1,6 +1,7 @@
 class Student < ActiveRecord::Base
     attr_accessible :user_id, :enrollment, :institution_name, :institution_id, :status_progress_id
     belongs_to :user
+    has_and_belongs_to_many :programs
     validates :enrollment, presence: true
     before_save do
         :check_if_institution_exists_and_save_id

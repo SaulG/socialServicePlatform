@@ -17,7 +17,7 @@ class Student < ActiveRecord::Base
         end
     end
     def default_values
-        self.status_progress_id ||= StatusProgress.find_by_name('selection').id
+        self.status_progress_id ||= StatusProgress.find_by_name('seleccion').id
     end
     def institution_name
         @institution_name
