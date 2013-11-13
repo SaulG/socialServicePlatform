@@ -1,18 +1,5 @@
 class ProcessStudentsController < ApplicationController
-    def show
-    end
-    def selection
-    end
-
-    def interview
-    end
-
-    def working
-    end
-
-    def release
-    end
-
-    def ending
+    def index
+        @number_of_programs = Student.find_by_user_id(current_student.id).programs.count
     end
 end

@@ -2,7 +2,7 @@
 <center>
     <div class="well prueba">
         <p>
-            Bienvenido <%= current_student.name %> a la plataforma del Servicio Social
+            Bienvenido <%= current_user.name %> a la plataforma del Servicio Social
         de la SE.
         <p/>
         <p>
@@ -30,6 +30,6 @@ Una vez seleccionados los vacantes pasaremos a la etapa de
         vacantes.
         </p>
     </div>
-    <%= link_to "Consulta de Vacantes",'/prueba', class:"btn btn-large btn-link"%>
+    <%= link_to "Consulta de Vacantes #{@programs.inspect}/#{SocialServicePlatform::LIMITED_STUDENT_PROGRAMS}",'/prueba', class:"btn btn-large btn-link"%>
 </center>
 

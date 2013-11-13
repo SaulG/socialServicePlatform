@@ -1,1 +1,2 @@
-<%= get_status_progress_to_render(1) %>
+<%= get_title_to_render(1) %>
+<%= get_message_to_render(1) %>
