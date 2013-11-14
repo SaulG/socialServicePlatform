@@ -12,6 +12,10 @@ $grayMediumLight: #eaeaea;
   box-sizing: border-box;
 }
 
+.pull-center{
+  align:center;
+}
+
 /* header */
 #logo {
   float: left;
@@ -29,6 +33,9 @@ $grayMediumLight: #eaeaea;
     text-decoration: none;
   }
 }
+
+
+
 
 /* General */
 html {

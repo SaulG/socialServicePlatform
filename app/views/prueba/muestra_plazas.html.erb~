@@ -1,4 +1,26 @@
-<h1>Prueba#muestra_plazas</h1>
-<div style='width: 800px;'>
-  <div id="map" style='width: 800px; height: 400px;'></div>
+<div class="container-fluid">
+    <div class="row-fluid">
+        <%= provide(:title, 'Prueba') %>
+        <h1>Prueba#muestra_plazas</h1>
+        <div class="span8">
+            <div class="row">
+                <div style='width: 600px;'>
+                    <div id="map" style='width: 600px; height: 360px;'></div>
+                </div>
+            </div>
+            <div class="row">
+                aqui va datatable
+            </div>
+        </div>
+        <div class="span2">
+            <ul id="plazas">
+                Ordena la prioridad de plazas
+                <li class="ui-state-default">Prueba</li>
+                <li class="ui-state-default">Prueba</li>
+                <li class="ui-state-default">Prueba</li>
+                <li class="ui-state-default">Prueba</li>
+                <li class="ui-state-default">Prueba</li>
+            </ul>
+        </div>
+    </div>
 </div>
