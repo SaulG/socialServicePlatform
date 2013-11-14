@@ -9,17 +9,39 @@
                 </div>
             </div>
             <div class="row">
-                aqui va datatable
+                <table id="programs" cellpadding="0"
+                       cellspacing="0" border="0" class="table table-striped
+                                                         table-bordered dataTable">
+                    <thead>
+                        <tr>
+                            <th>Nombre del programa</th>
+                            <th>Descripcion</th>
+                            <th>Cantidad de alumnos</th>
+                            <th>Turno</th>
+                            <th>Fecha de creacion</th>
+                            <th>Fecha de modificacion</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% get_programs_available.each do|program| %>
+                        <tr>
+                            <td><%= link_to(program.name, program) %></td>
+                            <td><%=program.description%></td>
+                            <td><%=program.quantity_of_students%></td>
+                            <td><%=@turns[program.turn_id]%></td>
+                            <td><%=program.created_at%></td>
+                            <td><%=program.updated_at%></td>
+                        </tr>
+                        <% end %>
+                    </tbody>
+                </table>
             </div>
         </div>
         <div class="span2">
             <ul id="plazas">
                 Ordena la prioridad de plazas
-                <li class="ui-state-default">Prueba</li>
-                <li class="ui-state-default">Prueba</li>
-                <li class="ui-state-default">Prueba</li>
-                <li class="ui-state-default">Prueba</li>
-                <li class="ui-state-default">Prueba</li>
+                <div id="plaza">
+                </div>
             </ul>
         </div>
     </div>

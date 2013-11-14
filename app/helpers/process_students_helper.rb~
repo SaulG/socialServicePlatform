@@ -5,10 +5,6 @@ module ProcessStudentsHelper
     LIBERACION = 4
     FINALIZACION = 5
 
-    def get_status_progress_to_render(status_progress_id)
-        get_title_to_render(status_progress_id)
-        get_message_to_render(status_progress_id)
-    end
     def get_title_to_render(status_progress_id)
         html=''
         html << '<center>'
@@ -19,7 +15,9 @@ module ProcessStudentsHelper
             if status_progress_id >= status_progress.id
                 aux = 'class="active"'
             end
-            html << '<a href=""'+aux+'>#{@status_progress.name.capitalize}</a>'
+            html << '<a href="#"'+aux+'>'
+            html << status_progress.name.capitalize
+            html << '</a>'
             aux=''
         end
         html << '</div>'
@@ -29,17 +27,21 @@ module ProcessStudentsHelper
     def get_message_to_render(status_progress_id)
         case status_progress_id
         when SELECCION
-            render :template => 'process_students_controller/selection'
+            render :partial => 'selection'
         when ENTREVISTA
-            render :template => 'process_students_controller/interview'
+            render :partial => 'interview'
         when REPORTES
-            render :template => 'process_students_controller/reporting'
+            render :partial => 'reporting'
         when LIBERACION
-            render :template => 'process_students_controller/release'
+            render :partial => 'release'
         when FINALIZACION
-            render :template => 'process_students_controller/ending'
+            render :partial => 'ending'
         else
-            render :template => 'process_students_controller/help'
+            render :partial => 'help'
         end
+    end
+
+    def get_programs_available
+        @programs = Program.all
     end
 end

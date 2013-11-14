@@ -11,7 +11,7 @@
                 <li><%= link_to "Programas", programs_path(:id => current_dependency_attendant.id) %></li>
                 <% when 'student' %>
                 <% if (Student.exists?(:user_id => current_user.id))%>
-                <li><%= link_to"Principal", process_students_path(:id => current_student.id) %></li>
+                <li><%= link_to"Principal", process_students_path %></li>
                 <% end %>
                 <% end %>
 

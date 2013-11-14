@@ -1,3 +1,19 @@
 // Place all the styles related to the Prueba controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+#plazas { 
+  list-style-type: none; 
+  margin: 0; 
+  padding: 0; 
+  width:100%;
+  height:100%;
+  li {
+    margin: 0;
+    height: 80px;
+    background: #eaeaea; 
+    &:hover {
+      background: #ebeeee;
+    }
+  }
+}

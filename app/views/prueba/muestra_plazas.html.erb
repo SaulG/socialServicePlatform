@@ -1,7 +1,7 @@
 <div class="container-fluid">
     <div class="row-fluid">
         <%= provide(:title, 'Prueba') %>
-        <h1>Prueba#muestra_plazas</h1>
+        <h1>Consulta de plazas</h1>
         <div class="span8">
             <div class="row">
                 <div style='width: 600px;'>
@@ -23,19 +23,25 @@
                         </tr>
                     </thead>
                     <tbody>
-                        
+                        <% get_programs_available.each do|program| %>
+                        <tr>
+                            <td><%= link_to(program.name, program) %></td>
+                            <td><%=program.description%></td>
+                            <td><%=program.quantity_of_students%></td>
+                            <td><%=@turns[program.turn_id]%></td>
+                            <td><%=program.created_at%></td>
+                            <td><%=program.updated_at%></td>
+                        </tr>
+                        <% end %>
                     </tbody>
                 </table>
             </div>
         </div>
         <div class="span2">
             <ul id="plazas">
-                Ordena la prioridad de plazas
-                <li class="ui-state-default">Prueba</li>
-                <li class="ui-state-default">Prueba</li>
-                <li class="ui-state-default">Prueba</li>
-                <li class="ui-state-default">Prueba</li>
-                <li class="ui-state-default">Prueba</li>
+                Ordena la prioridad de tus plazas seleccionadas
+                <div id="plaza">
+                </div>
             </ul>
         </div>
     </div>

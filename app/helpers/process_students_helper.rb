@@ -40,4 +40,7 @@ module ProcessStudentsHelper
             render :partial => 'help'
         end
     end
+    def get_number_of_student_programs
+        @number_of_programs = Student.find_by_user_id(current_student.id).programs.count
+    end
 end
