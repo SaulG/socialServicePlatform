@@ -1,4 +1,6 @@
 class ProgramsController < ApplicationController
+    before_filter :check_complete_information
+
     def prueba
         @dependencies = Dependency.all
         @hash = Gmaps4rails.build_markers(@dependencies) do |dependency, marker|

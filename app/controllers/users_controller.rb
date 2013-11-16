@@ -1,10 +1,6 @@
 class UsersController < ApplicationController
     before_filter :signed_in_user, only: [:edit, :update, :show]
     before_filter :correct_user, only: [:edit, :update, :show]
-    before_filter do
-        :check_filled_information_user
-        :check_information_role
-    end
 
     def create
         @user = User.new(params[:user])
@@ -21,7 +17,7 @@ class UsersController < ApplicationController
                 d.save
             end
             sign_in @user
-            flash[:success] = "Bienvenido a la plataforma del Servicio Social."
+            flash[:success] = "Bienvenido a la plataforma del Servicio Social. Por favor complete la informacion faltante."
             redirect_to @user
         else
             @role = @user.role
@@ -63,31 +59,5 @@ class UsersController < ApplicationController
             end
             render 'edit'
         end
-    end
-    private
-    def signed_in_user
-        unless signed_in?
-            store_location
-            redirect_to signin_url, notice: "Inicie sesion, por favor."
-        end
-    end
-    def correct_user
-        @user = User.find(params[:id])
-        redirect_to(current_user) unless current_user?(@user)
-    end
-
-    def check_filled_information_user
-        redirect_to edit_user_path(current_user), notice: "Por favor, llena tu informacion personal para poder completar el registro."
-    end
-
-    def check_information_role
-        case current_user.role
-        when 'student'
-            redirect_to edit_student_path(current_user), notice: "Por favor, actualiza tu informacion de estudiante para completar tu registro." unless Student.find_by_user_id(current_user.id)
-        end
-    end
-
-    def check_status_user
-        redirect_to current_user, notice: "Please wait until the administrator approve your account." unless current_user.authorization.nil?
     end
 end

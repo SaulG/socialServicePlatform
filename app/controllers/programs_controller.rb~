@@ -1,4 +1,9 @@
 class ProgramsController < ApplicationController
+    before_filter :signed_in_user, only: [:edit, :update, :show]
+    before_filter :correct_user, only: [:edit, :update, :show]
+    before_filter :check_information_user
+    before_filter :check_information_role
+
     def prueba
         @dependencies = Dependency.all
         @hash = Gmaps4rails.build_markers(@dependencies) do |dependency, marker|
@@ -13,7 +18,7 @@ class ProgramsController < ApplicationController
     def index
         @programs = []
         @programs << Program.find_by_dependency_attendant_id(current_dependency_attendant.id)
-        turns = Hash.new()
+        @turns = Hash.new()
         Turn.all.each do |turn| @turns[turn.id] = turn.name end
     end
 
