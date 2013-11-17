@@ -33,10 +33,12 @@ class ApplicationController < ActionController::Base
     def check_information_role
         case current_user.role
         when 'student'
-            redirect_to edit_student_path(current_user), notice: "Por favor, actualiza tu informacion de estudiante para completar tu registro." unless Student.find_by_user_id(current_user.id)
+            if Student.find_by_user_id(current_user.id).institution_id.nil?
+                redirect_to edit_student_path(current_user), notice: "Por favor, actualiza tu informacion de estudiante para completar tu registro."
+            end
         when 'dependency_attendant'
             if DependencyAttendant.find_by_user_id(current_user.id).dependency_id.nil?
-                redirect_to edit_dependency_attendant_path(current_user), notice: "Por favor, actualiza tu informacion de estudiante para completar tu registro."
+                redirect_to edit_dependency_attendant_path(current_user), notice: "Por favor, actualiza tu informacion de dependencia para completar tu registro."
             end
         end
     end
