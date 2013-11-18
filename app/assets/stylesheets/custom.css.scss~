@@ -16,6 +16,10 @@ $grayMediumLight: #eaeaea;
   align:center;
 }
 
+.navbar {
+  background: white;
+}
+
 /* header */
 #logo {
   float: left;
