@@ -1,8 +1,5 @@
 class ProgramsController < ApplicationController
-    before_filter :signed_in_user, only: [:edit, :update, :show]
-    before_filter :correct_user, only: [:edit, :update, :show]
-    before_filter :check_information_user
-    before_filter :check_information_role
+    before_filter :check_complete_information
 
     def prueba
         @dependencies = Dependency.all

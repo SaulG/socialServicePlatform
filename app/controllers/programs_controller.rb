@@ -22,6 +22,7 @@ class ProgramsController < ApplicationController
     def create
         @program = Program.new(params[:program])
         @program.dependency_attendant_id = current_dependency_attendant.id
+        @program.dependency_id = current_dependency_attendant.dependency_id
         @program.save
         @program.reload
         @skills = Skill.find(params[:skills])
@@ -29,7 +30,7 @@ class ProgramsController < ApplicationController
         @program.skills << @skills
         @program.aptitudes << @aptitudes
         if @program.save
-            flash[:success] = "Ha sido guardad la informacion del programa."
+            flash[:success] = "Ha sido guardado la informacion del programa."
             redirect_to programs_path
         else
             render 'new'
