@@ -9,7 +9,7 @@ class Student < ActiveRecord::Base
     end
 
     def check_if_institution_exists_and_save_id
-        institution_db = Institution.find_by_name(@institution_name)
+        institution_db = Institution.find(@institution_id)
         if institution_db
             self.institution_id = institution_db.id
          else
