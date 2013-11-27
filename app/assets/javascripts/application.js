@@ -13,7 +13,7 @@
 //= require jquery_ujs
 //= require bootstrap
 //= require jquery.ui.all
-//= require underscore
-//= require gmaps/google
 //= require dataTables/jquery.dataTables
 //= require dataTables/jquery.dataTables.bootstrap
+//= require underscore
+//= require gmaps/google

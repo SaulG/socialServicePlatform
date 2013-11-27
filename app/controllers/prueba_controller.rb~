@@ -17,10 +17,6 @@ class PruebaController < ApplicationController
                   '<div id="bodyContent"><p>"'+
                   program.description+
                   '"</p>'+
-                  '<div class="horizontalLine">'+
-                  '</div>'+
-                  '<a class="text-left" href="#">Agregar a plaza</a>'+
-                  '<a class="text-right" href="#">Como llego aqui?</a>'+
                   '</div>'+
                   '</div>'
               marker.title program.name

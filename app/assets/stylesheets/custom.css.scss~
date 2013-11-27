@@ -1,7 +1,7 @@
-@import "bootstrap";
-
 /*custom font*/
 @import url(http://fonts.googleapis.com/css?family=Merriweather+Sans);
+//@import "bootstrap";
+@import "bootstrap";
 
 /* mixins variables */
 $grayMediumLight: #eaeaea;
@@ -193,3 +193,8 @@ input, textarea, select, .uneditable-input {
 #map label { 
   width: auto; display:inline; 
 } 
+
+.infowindow {
+ font-family: 'Merriweather Sans', arial, verdana;
+ width: 250px;
+}

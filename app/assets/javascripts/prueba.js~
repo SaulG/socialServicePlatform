@@ -1,10 +1,37 @@
 $(function(){
-        handler = Gmaps.build('Google');
-        handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
-                handler.map.centerOn(markers[0]);
-                handler.addMarkers(markers);
-            });        
-        $("#plazas").sortable();
-        $("#plazas").disableSelection();
-        
+        var contador = 0;
+        var LIMITE = 5;
+        $('#plazas').sortable();
+        $('#plazas').disableSelection();      
+        $('#agregarPlazas').click(function(){
+                agregarPlaza();
+            });
+        function agregarPlaza(){
+            if(contador <= LIMITE){
+                var plaza = $('<li/>', {
+                        class: 'plaza',
+                    });
+                var contenedor = $('<div/>',{
+                        class:'container',
+                        style:'position: relative;height:80px;'
+                    });
+                var informacionPlaza = $('<p/>',{
+                        text:'Prueba '+contador
+                    });
+                var removerIcono = $('<i/>',{
+                        class:'icon-remove-circle',
+                        style:' position: absolute;right: 5px;top: 5px; '
+                    });
+                contenedor.append(informacionPlaza);
+                contenedor.append(removerIcono);
+                plaza.append(contenedor);
+                removerIcono.on('click', function(){
+                        $(plaza).remove();
+                        contador--;
+                    });
+                $(plaza).appendTo('#plazas');
+                contador++;
+            }
+            
+        };
     });
