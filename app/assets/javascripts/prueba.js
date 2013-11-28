@@ -1,6 +1,24 @@
+jQuery.fn.cambiarTipoDeBusqueda = function(){
+    $(this).bind('change', function(){
+            var tipoBusqueda = $(this).find('option:selected').val();
+            if(tipoBusqueda == 'mapa' || tipoBusqueda == 'tabla'){
+                $.ajax({
+                        url:'/prueba/'+tipoBusqueda,
+                            sucess: function(resultado){
+                            jQuery('.busqueda').html(resultado);
+                        },
+                            error: function(){
+                            alert('Vuelve a intentarlo es probable que tengas acceso a internet.');
+                            $(this).val(tipoBusqueda == 'mapa'? 'tabla':'mapa');
+                        }
+                    });
+            }
+        });
+}
 $(function(){
         var contador = 0;
         var LIMITE = 5;
+        $('#seleccionBusqueda').cambiarTipoDeBusqueda();
         $('#plazas').sortable();
         $('#plazas').disableSelection();      
                 $('#programs').dataTable({

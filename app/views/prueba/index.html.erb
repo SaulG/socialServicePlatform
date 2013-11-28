@@ -6,7 +6,7 @@
         <%= provide(:title, 'Prueba') %>
         <h1>Consulta de plazas</h1>
         <p>Seleccione el tipo de busqueda 
-            <select class="span5">
+            <select class="span5" id="seleccionBusqueda">
                 <option value="mapas">Por mapas, tomando tu direccion
                 como referencia</option>
                 <option value="tabla">Por tablas, busqueda de plaza
@@ -14,7 +14,9 @@
             </select>
         </p>
         <div class="span8">
-            <%= render("plazas_mapa") %>
+            <div class="container busqueda">
+                <%= render("plazas_mapa") %>
+            </div>
             <div class="row">
                 <%= render("caja_seleccion") %>
             </div>

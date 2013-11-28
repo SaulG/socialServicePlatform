@@ -1,6 +1,5 @@
 SocialServicePlatform::Application.routes.draw do
-    get "prueba/muestra_plazas"
-    get '/prueba', to: 'programs#prueba', via: :get
+    #get '/prueba', to: 'programs#prueba', via: :get
 
     resources :users
     resources :process_students
@@ -12,10 +11,12 @@ SocialServicePlatform::Application.routes.draw do
     resources :dependency_attendants
     resources :sessions, only: [:new, :create, :destroy]
     resources :institutions
+    resources :prueba
+
     root to: 'static_pages#home'
     match '/signup/:role', to: 'users#new', :as => 'signup'
     match '/signout', to: 'sessions#destroy', via: :delete
-
+    match '/prueba/:busqueda', to:'users#show'
 
     match '/prueba', to: 'students#field_institutions'
     match '/home', to: 'static_pages#home'
