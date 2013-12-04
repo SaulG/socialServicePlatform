@@ -6,6 +6,7 @@
 /* mixins variables */
 $grayMediumLight: #eaeaea;
 
+
 @mixin box_sizing {
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
@@ -197,4 +198,19 @@ input, textarea, select, .uneditable-input {
 .infowindow {
  font-family: 'Merriweather Sans', arial, verdana;
  width: 250px;
+}
+
+.horizontalLine {
+clear:both;
+width:100%;
+background-color:#d1d1d1;
+height:1px;
+margin-top:10px;
+margin-bottom:10px;
+}
+
+.line-separator{
+  height:1px;
+  background:#717171;
+  border-bottom:1px solid #313030;
 }

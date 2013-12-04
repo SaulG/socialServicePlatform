@@ -1,7 +1,8 @@
 <button type="button" id="agregarPlazas">Agregar plazas
     seleccionadas</button>  
 <div class="line-separator"></div>
-Ordena la prioridad de tus plazas seleccionadas
-<ul id="plazas" class="horizontal-slide">
-</ul>
-
+<div class="span2">
+    Ordena la prioridad de tus plazas seleccionadas
+    <ul id="plazas">
+    </ul>
+</div>

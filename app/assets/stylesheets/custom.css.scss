@@ -6,6 +6,7 @@
 /* mixins variables */
 $grayMediumLight: #eaeaea;
 
+
 @mixin box_sizing {
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
@@ -206,4 +207,10 @@ background-color:#d1d1d1;
 height:1px;
 margin-top:10px;
 margin-bottom:10px;
+}
+
+.line-separator{
+  height:1px;
+  background:$grayMediumLight;
+  border-bottom:0.6px solid $grayMediumLight;
 }

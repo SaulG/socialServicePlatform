@@ -1,9 +1,5 @@
 class PruebaController < ApplicationController
-    def tabla
-        render :partial =>'plazas_tablas'
-    end
-    def mapa
-        render :partial =>'plazas_mapa'
+    def show
     end
     def index
         @programs = Program.all
@@ -24,7 +20,7 @@ class PruebaController < ApplicationController
                     '"</p>'+
                     '<div class="horizontalLine">'+
                     '</div>'+
-                    '<a class="text-left" href="#">Agregar a plaza</a>'+
+                    '<a class="text-left" onclick="$.fn.seleccionDePlaza('+program.id.to_s+');" href="#">Agregar a plaza</a>'+
                     '<a class="text-right" href="#">Como llego aqui?</a>'+
                     '</div>'+
                     '</div>'

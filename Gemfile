@@ -2,13 +2,14 @@ source 'https://rubygems.org'
 
 gem 'rails', '3.2.14'
 gem 'bcrypt-ruby', '3.0.1'
-gem 'bootstrap-sass', '2.1'
+gem 'bootstrap-sass', '2.3.2'
 gem "jquery-rails", "~> 2.3.0"
 gem "jquery-ui-rails", "~> 4.1.0"
 gem 'font-awesome-rails', :git => 'git://github.com/bokmann/font-awesome-rails.git'
 gem 'jquery-datatables-rails', github: 'rweng/jquery-datatables-rails'
 gem "gmaps4rails", "~> 2.1.0"
 gem 'underscore-rails'
+gem 'json'
 
 group :development, :test do
     gem 'sqlite3', '1.3.5'

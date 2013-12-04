@@ -1,13 +1,5 @@
 class PruebaController < ApplicationController
     def show
-        respond_to do |format|
-            case params[:busqueda]
-            when 'plazas_tablas'
-                format.html{render :partial =>'plazas_tablas'}
-            when 'plazas_mapa'
-                format.html{render :partial =>'plazas_mapa'}
-            end
-        end
     end
     def index
         @programs = Program.all
@@ -28,12 +20,13 @@ class PruebaController < ApplicationController
                     '"</p>'+
                     '<div class="horizontalLine">'+
                     '</div>'+
-                    '<a class="text-left" href="#">Agregar a plaza</a>'+
-                    '<a class="text-right" href="#">Como llego aqui?</a>'+
+                    '<a class="text-left" onclick="$.fn.seleccionDePlaza('+program.id.to_s+');"'+
+                    'href="#">Agregar a plaza</a>'+
+                    '<input type="hidden" id="'+program.id.to_s+'" value="'+program.name+'">'
                     '</div>'+
                     '</div>'
                 marker.title program.name
-                marker.json({ :id => program.id })
+                marker.json({ :id => program.id})
             end
         end
         @hash.delete_if {|key, value| key.blank? }
