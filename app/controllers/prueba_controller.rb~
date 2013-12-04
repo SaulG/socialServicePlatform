@@ -20,8 +20,8 @@ class PruebaController < ApplicationController
                     '"</p>'+
                     '<div class="horizontalLine">'+
                     '</div>'+
-                    '<a class="text-left" onclick="$.fn.seleccionDePlaza('+program.id.to_s+');"'+
-                    'href="#">Agregar a plaza</a>'+
+                    '<a class="text-left" onclick="$.fn.seleccionDePlaza('+program.id.to_s+', this);"'+
+                    'href="#">Agregar plaza</a>'+
                     '<input type="hidden" id="'+program.id.to_s+'" value="'+program.name+'">'
                     '</div>'+
                     '</div>'

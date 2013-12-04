@@ -76,7 +76,7 @@ $(function(){
                         });
                     var removerIcono = $('<i/>',{
                             class:'icon-remove-circle',
-                            style:' position: absolute;right: 5px;top: 5px; '
+                            style:' position: absolute;right: 5px;top: 5px;cursor: pointer;'
                         });
                     contenedor.append(informacionPlaza);
                     contenedor.append(removerIcono);

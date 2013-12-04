@@ -23,7 +23,8 @@
                 <td><%=@turns[program.turn_id]%></td>
                 <td><%=program.created_at%></td>
                 <td><%=program.updated_at%></td>
-                <td><button class="btn">Agregar</button></td>
+                <td><button class="btn"
+                onclick="$.fn.seleccionDePlaza(JSON.parse('<%= escape_javascript program.to_json %>'),this);">Agregar plaza</button></td>                
             </tr>
             <% end %>
         </tbody>

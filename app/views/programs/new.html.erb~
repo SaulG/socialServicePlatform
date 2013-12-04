@@ -29,7 +29,7 @@
             <% Skill.all.each do | skill | %>
             <label class="li">
                 <%= check_box_tag :skill_ids, skill.id, false, :name =>
-                'skill[skill_id][]' %> 
+                'skills[]' %> 
                 <u>
                     <%= skill.name%>
                 </u>
@@ -47,7 +47,7 @@
             <% Aptitude.all.each do | aptitude | %>
             <label class="li">
                 <%= check_box_tag :aptitude_ids, aptitude.id, false, :name =>
-                'aptitude[aptitude_id][]' %> 
+                'aptitudes[]' %> 
                 <u>
                     <%= aptitude.name%>
                 </u>

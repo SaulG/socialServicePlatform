@@ -211,6 +211,6 @@ margin-bottom:10px;
 
 .line-separator{
   height:1px;
-  background:#717171;
-  border-bottom:1px solid #313030;
+  background:$grayMediumLight;
+  border-bottom:0.6px solid $grayMediumLight;
 }

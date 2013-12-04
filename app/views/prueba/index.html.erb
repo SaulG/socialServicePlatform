@@ -7,16 +7,17 @@
         <h1>Consulta de plazas</h1>
         <p>Seleccione el tipo de busqueda
             <ul class="nav nav-tabs" id="myTab">
-                <li class="active"><%= link_to "Mapas","#Mapas"%></li>
-                <li><%= link_to "Tablas","#Tablas"%></li>
+                <li class="active"><%= link_to "Tablas","#Tablas"%></li>
+                <li><%= link_to "Mapas","#Mapas"%></li>
             </ul>
         </p>
         <div class="tab-content row span12">
-            <div class="tab-pane active" id="Mapas">
-                <%= render("plazas_mapa") %>
-            </div>
-            <div class="tab-pane" id="Tablas">
+            <div class="tab-pane active" id="Tablas">
                 <%= render("plazas_tabla") %>
+            </div>
+                        
+            <div class="tab-pane" id="Mapas">
+                <%= render("plazas_mapa") %>
             </div>
         </div>
         <div class="row span12">
