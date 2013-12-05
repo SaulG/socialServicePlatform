@@ -68,8 +68,7 @@ $(function(){
                             id:plaza.id
                         });
                     var contenedor = $('<div/>',{
-                            class:'plaza-container',
-                            style:'word-wrap:break-word;'
+                            class:'plaza-container'
                         });
                     var tituloPlaza = $('<h6/>',{
                             text:plaza.name,
@@ -77,7 +76,7 @@ $(function(){
                         });
                     var descripcionPlaza = $('<small/>',{
                             text:plaza.description,
-                            class:'margin-left muted',
+                            class:'margin-left muted'
                         });
                     var removerIcono = $('<i/>',{
                             class:'icon-remove-circle icon-corner'

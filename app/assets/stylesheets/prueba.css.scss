@@ -9,6 +9,7 @@ ul.horizontal-slide {
     height: 100px;
     white-space: nowrap;
     overflow-x: auto;
+    overflow-y: hidden;
     list-style-type: none; 
     background: #eaeaea;
     border:2px solid #7f7579;
@@ -42,8 +43,8 @@ td{
 
 .icon-corner{
   position: absolute;
-  right: 2px;
-  top: -5px;
+  right: 3px;
+  top: 3px;
   cursor: pointer;
 }
 
@@ -51,4 +52,6 @@ td{
   position: relative;
   height:80px;
   word-wrap:break-word;
+  white-space:normal;
+  overflow:auto;
 }
