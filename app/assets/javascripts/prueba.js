@@ -10,8 +10,21 @@ var CONTADOR = 0;
 
 $(function(){
         $('#myTab a').click(function (e) {
-                e.preventDefault();
                 $(this).tab('show');
+            });
+
+        $('#btnGuardarPlazas').click(function(e){
+                $.ajax({
+                        type:"POST",
+                            url:"/prueba",
+                            data:$.fn.obtenerPlazas(),
+                            sucess(function(e){
+                                    return false;
+                                }),
+                            error(function(e){
+                                    return false;
+                                })
+                    });
             });
         $('#plazas').sortable();
         $('#plazas').disableSelection();      
@@ -48,13 +61,20 @@ $(function(){
             });        
         
         $.fn.isValueInList = function(plaza_id){
-            var array = [];
             var $li = $('ul.ui-sortable > li').attr('id', function(i){ 
                     if (plaza_id == i) return true;
                 });
             return false
         };
 
+        $.fn.obtenerPlazas = function(){
+            var plazas = [];
+            var $li = $('ul.ui-sorteable > li').attr('id', function(i){
+                    plazas.push(i);
+                });
+            return JSON.stringify(plazas);
+        };
+        
         $.fn.seleccionDePlaza = function(plaza, btn){        
             if(!$.fn.isValueInList(plaza.id)){
                 if ($(btn).text() == REMOVER_PLAZA){
