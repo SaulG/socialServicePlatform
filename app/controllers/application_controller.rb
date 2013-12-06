@@ -42,4 +42,7 @@ class ApplicationController < ActionController::Base
             end
         end
     end
+    def check_student
+        redirect_to root_path unless curren_user.role != 'student'
+    end
 end

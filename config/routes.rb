@@ -1,6 +1,7 @@
 SocialServicePlatform::Application.routes.draw do
     resources :users
     resources :process_students
+    resources :students_programs
     resources :programs
     resources :dependencies
     resources :students

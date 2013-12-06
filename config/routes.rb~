@@ -1,6 +1,4 @@
 SocialServicePlatform::Application.routes.draw do
-    #get '/prueba', to: 'programs#prueba', via: :get
-
     resources :users
     resources :process_students
     resources :programs

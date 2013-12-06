@@ -16,14 +16,16 @@ $(function(){
         $('#btnGuardarPlazas').click(function(e){
                 $.ajax({
                         type:"POST",
-                            url:"/prueba",
+                            url:"/students_programs",
                             data:$.fn.obtenerPlazas(),
-                            sucess(function(e){
-                                    return false;
-                                }),
-                            error(function(e){
-                                    return false;
-                                })
+                            sucess:function(e){
+                            alert(JSON.stringify(e));
+                            return false;
+                        },
+                            error:function(e){
+                            alert(JSON.stringify(e));
+                            return false;
+                        }
                     });
             });
         $('#plazas').sortable();
@@ -69,58 +71,53 @@ $(function(){
 
         $.fn.obtenerPlazas = function(){
             var plazas = [];
-            var $li = $('ul.ui-sorteable > li').attr('id', function(i){
-                    plazas.push(i);
-                });
-            return JSON.stringify(plazas);
+            $('ul.horizontal-slide > li').each(function(){plazas.push(this.id)});
+            alert(eval('({"plazas_id" : ['+plazas+']})'));
+            return eval('({"plazas_id" : ['+plazas+']})');
         };
         
         $.fn.seleccionDePlaza = function(plaza, btn){        
-            if(!$.fn.isValueInList(plaza.id)){
-                if ($(btn).text() == REMOVER_PLAZA){
-                    $('li').remove('#'+plaza.id);
-                    $(btn).text(AGREGAR_PLAZA);
-                    CONTADOR--;
-                    alert(CONTADOR);
-                } else if(CONTADOR <= LIMITE){
-                    var plazaAgregar = $('<li/>', {
-                            class: 'plaza span4',
-                            id:plaza.id
-                        });
-                    var contenedor = $('<div/>',{
-                            class:'plaza-container'
-                        });
-                    var tituloPlaza = $('<h6/>',{
-                            text:plaza.name,
-                            class:'margin-left'
-                        });
-                    var descripcionPlaza = $('<small/>',{
-                            text:plaza.description,
-                            class:'margin-left muted'
-                        });
-                    var removerIcono = $('<i/>',{
-                            class:'icon-remove-circle icon-corner'
-                        });
-                    contenedor.append(tituloPlaza);
-                    contenedor.append(descripcionPlaza);
-                    contenedor.append(removerIcono);
-                    plazaAgregar.append(contenedor);
-                    
-                    removerIcono.on('click', function(){
+            if ($(btn).text() == REMOVER_PLAZA){
+                $('li').remove('#'+plaza.id);
+                $(btn).text(AGREGAR_PLAZA);
+                CONTADOR--;
+                alert(CONTADOR);
+            } else if(CONTADOR <= LIMITE){
+                var plazaAgregar = $('<li/>', {
+                        class: 'plaza span4',
+                        id:plaza.id
+                    });
+                var contenedor = $('<div/>',{
+                        class:'plaza-container'
+                    });
+                var tituloPlaza = $('<h6/>',{
+                        text:plaza.name,
+                        class:'margin-left'
+                    });
+                var descripcionPlaza = $('<small/>',{
+                        text:plaza.description,
+                        class:'margin-left muted'
+                    });
+                var removerIcono = $('<i/>',{
+                        class:'icon-remove-circle icon-corner'
+                    });
+                contenedor.append(tituloPlaza);
+                contenedor.append(descripcionPlaza);
+                contenedor.append(removerIcono);
+                plazaAgregar.append(contenedor);
+                
+                removerIcono.on('click', function(){
                         $(plazaAgregar).remove();
                         $(btn).text(AGREGAR_PLAZA);
                         CONTADOR--;
-                        alert(CONTADOR);
-                        });
-                    $(plazaAgregar).appendTo('#plazas');
-                    $(btn).text(REMOVER_PLAZA);
-                    CONTADOR++;
-                    alert(CONTADOR);
-                }
+                    });
+                $(plazaAgregar).appendTo('#plazas');
+                $(btn).text(REMOVER_PLAZA);
+                CONTADOR++;           
             }
         };
-        
-        /*
+    
+    /*
           Solamente fue agregado para evitar que la pagina principal se scrolle hacia arriba
           al momento de ejecutar javascript.
         */
