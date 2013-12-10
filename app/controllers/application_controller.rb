@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
     helper_method :signed_in_user
     helper_method :correct_user
     helper_method :check_complete_information
-
+    helper_method :check_student
     #Force signout to prevent CSRF attacks
     def handle_unverified_request
         sign_out
@@ -43,6 +43,9 @@ class ApplicationController < ActionController::Base
         end
     end
     def check_student
-        redirect_to root_path unless curren_user.role != 'student'
+        p current_user.role
+        if current_user.role != "student"
+            redirect_to root_path
+        end
     end
 end
